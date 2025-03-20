@@ -38,13 +38,8 @@ The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
 from ucimlrepo import fetch_ucirepo 
-  
+
 # fetch dataset 
 phiusiil_phishing_url_website = fetch_ucirepo(id=967) 
-  
-# data (as pandas dataframes) 
-X = phiusiil_phishing_url_website.data.features 
-y = phiusiil_phishing_url_website.data.targets 
-
 -------------------
 

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Datos y EDA &#8212; Machine Learning</title>
+    <title>Detección de URLs de Phishing mediante un Enfoque Híbrido con Machine Learning &#8212; Machine Learning</title>
   
   
   
@@ -57,11 +57,13 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'EDA';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Welcome to your Jupyter Book" href="intro.html" />
+    <link rel="prev" title="Introducción" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -175,12 +177,12 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Welcome to your Jupyter Book
+                    Introducción
                 </a>
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#"><em><strong>Datos y EDA</strong></em></a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#"><em><strong>Detección de URLs de Phishing mediante un Enfoque Híbrido con Machine Learning</strong></em></a></li>
 </ul>
 
     </div>
@@ -321,7 +323,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -332,11 +336,41 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Datos y EDA</h1>
+    <h1>Detección de URLs de Phishing mediante un Enfoque Híbrido con Machine Learning</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#informacion-del-conjunto-de-datos"><em><strong>Información del Conjunto de datos</strong></em></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metadatos"><em><strong>Metadatos</strong></em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables"><em><strong>Variables</strong></em></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#informacion-de-la-url-y-el-dominio"><strong>Información de la URL y el Dominio</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#caracteristicas-basadas-en-similitud-y-probabilidad"><strong>Características basadas en similitud y probabilidad</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-caracteres-en-la-url"><strong>Análisis de caracteres en la URL</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#presencia-de-tecnicas-de-ofuscacion"><strong>Presencia de técnicas de ofuscación</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#protocolo-y-seguridad"><strong>Protocolo y seguridad</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#estructura-del-codigo-fuente"><strong>Estructura del código fuente</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#redirecciones-y-formularios"><strong>Redirecciones y formularios</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#elementos-graficos-y-multimedia"><strong>Elementos gráficos y multimedia</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#referencias-y-enlaces"><strong>Referencias y enlaces</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#presencia-de-elementos-financieros-y-sociales"><strong>Presencia de elementos financieros y sociales</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#informacion-de-derechos-y-seguridad"><strong>Información de derechos y seguridad</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-objetivo"><strong>Variable objetivo</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-exploratorio-de-datos"><em><strong>Análisis Exploratorio de Datos</strong></em></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estadisticas-descriptivas"><em><strong>Estadísticas Descriptivas</strong></em></a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -346,29 +380,76 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="datos-y-eda">
-<h1><em><strong>Datos y EDA</strong></em><a class="headerlink" href="#datos-y-eda" title="Link to this heading">#</a></h1>
-<div class="cell docutils container">
+  <section class="tex2jax_ignore mathjax_ignore" id="deteccion-de-urls-de-phishing-mediante-un-enfoque-hibrido-con-machine-learning">
+<h1><em><strong>Detección de URLs de Phishing mediante un Enfoque Híbrido con Machine Learning</strong></em><a class="headerlink" href="#deteccion-de-urls-de-phishing-mediante-un-enfoque-hibrido-con-machine-learning" title="Link to this heading">#</a></h1>
+<p>El presente trabajo se realiza con el objetivo de desarrollar un modelo híbrido para la detección de URLs de phishing, utilizando un enfoque basado en técnicas de aprendizaje automático. Para ello, se propone un modelo de <em><strong>stacking</strong></em> que combina múltiples algoritmos de clasificación, optimizando su desempeño a través de un metamodelo basado en <em><strong>Regresión Logística</strong></em>.</p>
+<p>El objetivo principal es evaluar el desempeño de diferentes modelos individuales y comparar su efectividad frente a la estrategia híbrida. Dentro de los modelos de <em><strong>benchmark</strong></em> utilizados en el estudio se encuentran:</p>
+<ul class="simple">
+<li><p><em><strong>K-Nearest Neighbors (KNN)</strong></em></p></li>
+<li><p><em><strong>Regresión Ridge y Lasso</strong></em></p></li>
+<li><p><em><strong>Clasificador Bayesiano</strong></em></p></li>
+<li><p><em><strong>Árboles de Decisión (DT)</strong></em></p></li>
+<li><p><em><strong>Random Forest (RF)</strong></em></p></li>
+<li><p><em><strong>XGBoost</strong></em></p></li>
+<li><p><em><strong>Máquinas de Soporte Vectorial (SVM)</strong></em></p></li>
+<li><p><em><strong>Perceptrón Multicapa (MLP)</strong></em></p></li>
+</ul>
+<p>El análisis se realizará sobre el conjunto de datos <em><strong><a class="reference external" href="https://archive.ics.uci.edu/dataset/967/phiusiil+phishing+url+dataset">PhiUSIIL Phishing URL</a></strong></em>, que contiene características relevantes extraídas de URLs legítimas y de phishing. A través de este estudio, se espera demostrar que la combinación de múltiples modelos a través de <em><strong>stacking</strong></em> puede mejorar la capacidad predictiva y generalización en la detección de sitios maliciosos.</p>
+<p>El resto del trabajo se encuentra organizado de la siguiente manera:</p>
+<ul class="simple">
+<li><p><em><strong>Información del Conjunto de Datos</strong></em></p></li>
+<li><p><em><strong>Análisis Exploratorio de Datos</strong></em></p></li>
+<li><p><em><strong>Fundamentación Matemática de los Modelos</strong></em></p></li>
+<li><p><em><strong>Implementación de los Modelos</strong></em></p></li>
+<li><p><em><strong>Benchmark</strong></em></p></li>
+<li><p><em><strong>Conclusiones</strong></em></p></li>
+<li><p><em><strong>Referencias</strong></em></p></li>
+</ul>
+<section id="informacion-del-conjunto-de-datos">
+<h2><em><strong>Información del Conjunto de datos</strong></em><a class="headerlink" href="#informacion-del-conjunto-de-datos" title="Link to this heading">#</a></h2>
+<p>Primero, cargaremos el dataset desde el repositorio de <em><strong><a class="reference external" href="https://archive.ics.uci.edu/">UCI</a></strong></em> mediante la siguiente línea de código.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ucimlrepo</span><span class="w"> </span><span class="kn">import</span> <span class="n">fetch_ucirepo</span> 
-  
+
 <span class="c1"># fetch dataset </span>
 <span class="n">phiusiil_phishing_url_website</span> <span class="o">=</span> <span class="n">fetch_ucirepo</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="mi">967</span><span class="p">)</span> 
-  
-<span class="c1"># data (as pandas dataframes) </span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<p>Con esto, obtenemos un objeto de tipo <code class="docutils literal notranslate"><span class="pre">ucimlrepo.dotdict.dotdict</span></code>, el cual asignaremos a nuestros conjuntos <code class="docutils literal notranslate"><span class="pre">X</span></code> e <code class="docutils literal notranslate"><span class="pre">y</span></code> de la siguiente manera:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># data (as pandas dataframes) </span>
 <span class="n">X</span> <span class="o">=</span> <span class="n">phiusiil_phishing_url_website</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">features</span> 
 <span class="n">y</span> <span class="o">=</span> <span class="n">phiusiil_phishing_url_website</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">targets</span> 
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<p>Podemos acceder a los metadatos del dataset, donde encontraremos información útil como el <strong>ID del dataset (967)</strong>, el resumen (<em>abstract</em>), las tareas de investigación (<em>tasks</em>), y otros detalles importantes. Este dataset, denominado <em><strong>PhiUSIIL Phishing URL (Website)</strong></em>, contiene un total de <strong>235,795 instancias</strong> y <strong>54 características</strong>, combinando datos <strong>reales, categóricos e enteros</strong>. Su propósito principal es la <strong>clasificación de URLs en legítimas o phishing</strong>, con características extraídas tanto del código fuente de las páginas web como de la estructura de la URL. Fue creado en <strong>2024</strong> y se encuentra disponible en el repositorio de <em><strong><a class="reference external" href="https://archive.ics.uci.edu/dataset/967/phiusiil+phishing+url+dataset">UCI</a></strong></em>.</p>
+<section id="metadatos">
+<h3><em><strong>Metadatos</strong></em><a class="headerlink" href="#metadatos" title="Link to this heading">#</a></h3>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># metadata </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># metadata</span>
 <span class="n">display</span><span class="p">(</span><span class="n">phiusiil_phishing_url_website</span><span class="o">.</span><span class="n">metadata</span><span class="p">)</span> 
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;uci_id&#39;: 967,
  &#39;name&#39;: &#39;PhiUSIIL Phishing URL (Website)&#39;,
@@ -419,136 +500,180 @@ document.write(`
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+</section>
+<section id="variables">
+<h3><em><strong>Variables</strong></em><a class="headerlink" href="#variables" title="Link to this heading">#</a></h3>
+<section id="informacion-de-la-url-y-el-dominio">
+<h4><strong>Información de la URL y el Dominio</strong><a class="headerlink" href="#informacion-de-la-url-y-el-dominio" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">URL</span></code></strong>: Dirección completa de la página web analizada.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">URLLength</span></code></strong>: Longitud total de la URL en número de caracteres.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">Domain</span></code></strong>: Dominio principal extraído de la URL.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">DomainLength</span></code></strong>: Longitud del dominio en caracteres.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">IsDomainIP</span></code></strong>: Indica si el dominio es una dirección IP en lugar de un nombre de dominio (<span class="math notranslate nohighlight">\(1\)</span> si es una IP, <span class="math notranslate nohighlight">\(0\)</span> si no).</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">TLD</span></code></strong>: Extensión del dominio de nivel superior (ejemplo: <code class="docutils literal notranslate"><span class="pre">.com</span></code>, <code class="docutils literal notranslate"><span class="pre">.org</span></code>).</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">TLDLength</span></code></strong>: Longitud del TLD en caracteres.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">NoOfSubDomain</span></code></strong>: Número de subdominios presentes en la URL.</p></li>
+</ul>
+</section>
+<section id="caracteristicas-basadas-en-similitud-y-probabilidad">
+<h4><strong>Características basadas en similitud y probabilidad</strong><a class="headerlink" href="#caracteristicas-basadas-en-similitud-y-probabilidad" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">URLSimilarityIndex</span></code></strong>: Índice de similitud de la URL con otras URLs de phishing conocidas.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">TLDLegitimateProb</span></code></strong>: Probabilidad de que el TLD pertenezca a un sitio legítimo.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">URLCharProb</span></code></strong>: Probabilidad de que la composición de caracteres en la URL corresponda a una página legítima.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">DomainTitleMatchScore</span></code></strong>: Puntaje que mide la similitud entre el dominio y el título de la página.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">URLTitleMatchScore</span></code></strong>: Puntaje que mide la similitud entre la URL y el título de la página.</p></li>
+</ul>
+</section>
+<section id="analisis-de-caracteres-en-la-url">
+<h4><strong>Análisis de caracteres en la URL</strong><a class="headerlink" href="#analisis-de-caracteres-en-la-url" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">CharContinuationRate</span></code></strong>: Tasa de continuidad de caracteres en la URL, mide patrones de escritura sospechosos.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">NoOfLettersInURL</span></code></strong>: Cantidad total de letras en la URL.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">LetterRatioInURL</span></code></strong>: Proporción de letras respecto al total de caracteres en la URL.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">NoOfDegitsInURL</span></code></strong>: Número total de dígitos en la URL.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">DegitRatioInURL</span></code></strong>: Proporción de dígitos respecto al total de caracteres en la URL.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">NoOfEqualsInURL</span></code></strong>: Número de signos <code class="docutils literal notranslate"><span class="pre">=</span></code> en la URL.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">NoOfQMarkInURL</span></code></strong>: Número de signos de interrogación <code class="docutils literal notranslate"><span class="pre">?</span></code> en la URL.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">NoOfAmpersandInURL</span></code></strong>: Número de símbolos <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> en la URL.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">NoOfOtherSpecialCharsInURL</span></code></strong>: Número total de otros caracteres especiales en la URL.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">SpacialCharRatioInURL</span></code></strong>: Proporción de caracteres especiales en la URL.</p></li>
+</ul>
+</section>
+<section id="presencia-de-tecnicas-de-ofuscacion">
+<h4><strong>Presencia de técnicas de ofuscación</strong><a class="headerlink" href="#presencia-de-tecnicas-de-ofuscacion" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">HasObfuscation</span></code></strong>: Indica si la URL tiene técnicas de ofuscación (<span class="math notranslate nohighlight">\(1\)</span> si tiene, <span class="math notranslate nohighlight">\(0\)</span> si no).</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">NoOfObfuscatedChar</span></code></strong>: Número de caracteres que forman parte de una técnica de ofuscación.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">ObfuscationRatio</span></code></strong>: Proporción de caracteres de ofuscación respecto al total de caracteres de la URL.</p></li>
+</ul>
+</section>
+<section id="protocolo-y-seguridad">
+<h4><strong>Protocolo y seguridad</strong><a class="headerlink" href="#protocolo-y-seguridad" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">IsHTTPS</span></code></strong>: Indica si la URL usa el protocolo seguro HTTPS (<span class="math notranslate nohighlight">\(1\)</span> si sí, <span class="math notranslate nohighlight">\(0\)</span> si usa HTTP).</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">Robots</span></code></strong>: Indica si la página tiene un archivo <code class="docutils literal notranslate"><span class="pre">robots.txt</span></code> (<span class="math notranslate nohighlight">\(1\)</span> si sí, <span class="math notranslate nohighlight">\(0\)</span> si no).</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">IsResponsive</span></code></strong>: Indica si el sitio web responde correctamente a las solicitudes del usuario (<span class="math notranslate nohighlight">\(1\)</span> si sí, <span class="math notranslate nohighlight">\(0\)</span> si no).</p></li>
+</ul>
+</section>
+<section id="estructura-del-codigo-fuente">
+<h4><strong>Estructura del código fuente</strong><a class="headerlink" href="#estructura-del-codigo-fuente" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">LineOfCode</span></code></strong>: Número total de líneas en el código fuente de la página.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">LargestLineLength</span></code></strong>: Longitud de la línea más larga en el código fuente.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">HasTitle</span></code></strong>: Indica si la página tiene una etiqueta <code class="docutils literal notranslate"><span class="pre">&lt;title&gt;</span></code> definida (<span class="math notranslate nohighlight">\(1\)</span> si sí, <span class="math notranslate nohighlight">\(0\)</span> si no).</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">Title</span></code></strong>: Texto contenido en la etiqueta <code class="docutils literal notranslate"><span class="pre">&lt;title&gt;</span></code>.</p></li>
+</ul>
+</section>
+<section id="redirecciones-y-formularios">
+<h4><strong>Redirecciones y formularios</strong><a class="headerlink" href="#redirecciones-y-formularios" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">NoOfURLRedirect</span></code></strong>: Número total de redirecciones de la URL a otras páginas.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">NoOfSelfRedirect</span></code></strong>: Número de redirecciones dentro del mismo dominio.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">HasExternalFormSubmit</span></code></strong>: Indica si hay formularios en la página que envían datos a un dominio externo (<span class="math notranslate nohighlight">\(1\)</span> si sí, <span class="math notranslate nohighlight">\(0\)</span> si no).</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">HasSubmitButton</span></code></strong>: Indica si la página tiene botones de envío de formularios.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">HasHiddenFields</span></code></strong>: Indica si la página tiene campos de formulario ocultos.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">HasPasswordField</span></code></strong>: Indica si la página tiene un campo de contraseña.</p></li>
+</ul>
+</section>
+<section id="elementos-graficos-y-multimedia">
+<h4><strong>Elementos gráficos y multimedia</strong><a class="headerlink" href="#elementos-graficos-y-multimedia" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">NoOfPopup</span></code></strong>: Número de ventanas emergentes (pop-ups) detectadas.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">NoOfiFrame</span></code></strong>: Número de <code class="docutils literal notranslate"><span class="pre">iframe</span></code> incrustados en la página.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">HasFavicon</span></code></strong>: Indica si la página tiene un favicon (<span class="math notranslate nohighlight">\(1\)</span> si sí, <span class="math notranslate nohighlight">\(0\)</span> si no).</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">NoOfImage</span></code></strong>: Número total de imágenes en la página.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">NoOfCSS</span></code></strong>: Número total de archivos CSS en la página.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">NoOfJS</span></code></strong>: Número total de archivos JavaScript en la página.</p></li>
+</ul>
+</section>
+<section id="referencias-y-enlaces">
+<h4><strong>Referencias y enlaces</strong><a class="headerlink" href="#referencias-y-enlaces" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">NoOfSelfRef</span></code></strong>: Número de enlaces dentro del mismo dominio.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">NoOfEmptyRef</span></code></strong>: Número de enlaces vacíos (<code class="docutils literal notranslate"><span class="pre">href=&quot;#&quot;</span></code>).</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">NoOfExternalRef</span></code></strong>: Número de enlaces externos a otros dominios.</p></li>
+</ul>
+</section>
+<section id="presencia-de-elementos-financieros-y-sociales">
+<h4><strong>Presencia de elementos financieros y sociales</strong><a class="headerlink" href="#presencia-de-elementos-financieros-y-sociales" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">Bank</span></code></strong>: Indica si la página contiene palabras clave relacionadas con bancos.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">Pay</span></code></strong>: Indica si la página contiene términos relacionados con pagos.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">Crypto</span></code></strong>: Indica si la página menciona términos relacionados con criptomonedas.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">HasSocialNet</span></code></strong>: Indica si la página contiene enlaces a redes sociales.</p></li>
+</ul>
+</section>
+<section id="informacion-de-derechos-y-seguridad">
+<h4><strong>Información de derechos y seguridad</strong><a class="headerlink" href="#informacion-de-derechos-y-seguridad" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">HasCopyrightInfo</span></code></strong>: Indica si la página menciona información de derechos de autor.</p></li>
+</ul>
+</section>
+<section id="variable-objetivo">
+<h4><strong>Variable objetivo</strong><a class="headerlink" href="#variable-objetivo" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">label</span></code></strong>: Variable de clasificación binaria que indica si la URL es phishing (<span class="math notranslate nohighlight">\(0\)</span>) o legítima (<span class="math notranslate nohighlight">\(1\)</span>).</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="analisis-exploratorio-de-datos">
+<h2><em><strong>Análisis Exploratorio de Datos</strong></em><a class="headerlink" href="#analisis-exploratorio-de-datos" title="Link to this heading">#</a></h2>
+<p>En esta sección, se presenta un <em><strong>Análisis Exploratorio de Datos (EDA)</strong></em> sobre el dataset empleado, con el objetivo de identificar el comportamiento de las variables, detectar valores faltantes, así como analizar patrones relevantes antes de proceder con la construcción de los modelos de clasificación.</p>
+<section id="estadisticas-descriptivas">
+<h3><em><strong>Estadísticas Descriptivas</strong></em><a class="headerlink" href="#estadisticas-descriptivas" title="Link to this heading">#</a></h3>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># variable information </span>
-<span class="nb">print</span><span class="p">(</span><span class="n">phiusiil_phishing_url_website</span><span class="o">.</span><span class="n">variables</span><span class="p">)</span> 
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                          name     role         type demographic description  \
-0                     FILENAME    Other  Categorical        None        None   
-1                          URL  Feature  Categorical        None        None   
-2                    URLLength  Feature      Integer        None        None   
-3                       Domain  Feature  Categorical        None        None   
-4                 DomainLength  Feature      Integer        None        None   
-5                   IsDomainIP  Feature      Integer        None        None   
-6                          TLD  Feature  Categorical        None        None   
-7           URLSimilarityIndex  Feature      Integer        None        None   
-8         CharContinuationRate  Feature      Integer        None        None   
-9            TLDLegitimateProb  Feature   Continuous        None        None   
-10                 URLCharProb  Feature   Continuous        None        None   
-11                   TLDLength  Feature      Integer        None        None   
-12               NoOfSubDomain  Feature      Integer        None        None   
-13              HasObfuscation  Feature      Integer        None        None   
-14          NoOfObfuscatedChar  Feature      Integer        None        None   
-15            ObfuscationRatio  Feature      Integer        None        None   
-16            NoOfLettersInURL  Feature      Integer        None        None   
-17            LetterRatioInURL  Feature   Continuous        None        None   
-18             NoOfDegitsInURL  Feature      Integer        None        None   
-19             DegitRatioInURL  Feature      Integer        None        None   
-20             NoOfEqualsInURL  Feature      Integer        None        None   
-21              NoOfQMarkInURL  Feature      Integer        None        None   
-22          NoOfAmpersandInURL  Feature      Integer        None        None   
-23  NoOfOtherSpecialCharsInURL  Feature      Integer        None        None   
-24       SpacialCharRatioInURL  Feature   Continuous        None        None   
-25                     IsHTTPS  Feature      Integer        None        None   
-26                  LineOfCode  Feature      Integer        None        None   
-27           LargestLineLength  Feature      Integer        None        None   
-28                    HasTitle  Feature      Integer        None        None   
-29                       Title  Feature  Categorical        None        None   
-30       DomainTitleMatchScore  Feature      Integer        None        None   
-31          URLTitleMatchScore  Feature      Integer        None        None   
-32                  HasFavicon  Feature      Integer        None        None   
-33                      Robots  Feature      Integer        None        None   
-34                IsResponsive  Feature      Integer        None        None   
-35             NoOfURLRedirect  Feature      Integer        None        None   
-36            NoOfSelfRedirect  Feature      Integer        None        None   
-37              HasDescription  Feature      Integer        None        None   
-38                   NoOfPopup  Feature      Integer        None        None   
-39                  NoOfiFrame  Feature      Integer        None        None   
-40       HasExternalFormSubmit  Feature      Integer        None        None   
-41                HasSocialNet  Feature      Integer        None        None   
-42             HasSubmitButton  Feature      Integer        None        None   
-43             HasHiddenFields  Feature      Integer        None        None   
-44            HasPasswordField  Feature      Integer        None        None   
-45                        Bank  Feature      Integer        None        None   
-46                         Pay  Feature      Integer        None        None   
-47                      Crypto  Feature      Integer        None        None   
-48            HasCopyrightInfo  Feature      Integer        None        None   
-49                   NoOfImage  Feature      Integer        None        None   
-50                     NoOfCSS  Feature      Integer        None        None   
-51                      NoOfJS  Feature      Integer        None        None   
-52                 NoOfSelfRef  Feature      Integer        None        None   
-53                NoOfEmptyRef  Feature      Integer        None        None   
-54             NoOfExternalRef  Feature      Integer        None        None   
-55                       label   Target      Integer        None        None   
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_columns&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.float_format&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">{:.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">)</span>
 
-   units missing_values  
-0   None             no  
-1   None             no  
-2   None             no  
-3   None             no  
-4   None             no  
-5   None             no  
-6   None             no  
-7   None             no  
-8   None             no  
-9   None             no  
-10  None             no  
-11  None             no  
-12  None             no  
-13  None             no  
-14  None             no  
-15  None             no  
-16  None             no  
-17  None             no  
-18  None             no  
-19  None             no  
-20  None             no  
-21  None             no  
-22  None             no  
-23  None             no  
-24  None             no  
-25  None             no  
-26  None             no  
-27  None             no  
-28  None             no  
-29  None             no  
-30  None             no  
-31  None             no  
-32  None             no  
-33  None             no  
-34  None             no  
-35  None             no  
-36  None             no  
-37  None             no  
-38  None             no  
-39  None             no  
-40  None             no  
-41  None             no  
-42  None             no  
-43  None             no  
-44  None             no  
-45  None             no  
-46  None             no  
-47  None             no  
-48  None             no  
-49  None             no  
-50  None             no  
-51  None             no  
-52  None             no  
-53  None             no  
-54  None             no  
-55  None             no  
+<span class="c1"># Enable better formatting in Jupyter Notebook</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.width&#39;</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>  <span class="c1"># Adjust output width</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.colheader_justify&#39;</span><span class="p">,</span> <span class="s1">&#39;center&#39;</span><span class="p">)</span>  <span class="c1"># Align column headers</span>
+
+<span class="c1"># Improve DataFrame styling (works in Jupyter)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">style_dataframe</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">df</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">set_properties</span><span class="p">(</span><span class="o">**</span><span class="p">{</span>
+        <span class="s1">&#39;background-color&#39;</span><span class="p">:</span> <span class="s1">&#39;#f4f4f4&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;border-color&#39;</span><span class="p">:</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;font-size&#39;</span><span class="p">:</span> <span class="s1">&#39;12px&#39;</span><span class="p">,</span>
+    <span class="p">})</span><span class="o">.</span><span class="n">set_table_styles</span><span class="p">([{</span>
+        <span class="s1">&#39;selector&#39;</span><span class="p">:</span> <span class="s1">&#39;thead th&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;props&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="s1">&#39;background-color&#39;</span><span class="p">,</span> <span class="s1">&#39;#40466e&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;color&#39;</span><span class="p">,</span> <span class="s1">&#39;white&#39;</span><span class="p">)]</span>
+    <span class="p">}])</span>
 </pre></div>
 </div>
 </div>
+</details>
 </div>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># libraries</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<p>Podemos obtener una previsualización del dataset utilizando la función <em><strong><code class="docutils literal notranslate"><span class="pre">.head()</span></code></strong></em>, que muestra las primeras filas del conjunto de datos. Esto permite inspeccionar su estructura, tipos de datos y valores iniciales antes de profundizar en el análisis exploratorio.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -569,7 +694,7 @@ document.write(`
 </style>
 <table border="1" class="dataframe">
   <thead>
-    <tr style="text-align: right;">
+    <tr style="text-align: center;">
       <th></th>
       <th>URL</th>
       <th>URLLength</th>
@@ -581,7 +706,40 @@ document.write(`
       <th>CharContinuationRate</th>
       <th>TLDLegitimateProb</th>
       <th>URLCharProb</th>
-      <th>...</th>
+      <th>TLDLength</th>
+      <th>NoOfSubDomain</th>
+      <th>HasObfuscation</th>
+      <th>NoOfObfuscatedChar</th>
+      <th>ObfuscationRatio</th>
+      <th>NoOfLettersInURL</th>
+      <th>LetterRatioInURL</th>
+      <th>NoOfDegitsInURL</th>
+      <th>DegitRatioInURL</th>
+      <th>NoOfEqualsInURL</th>
+      <th>NoOfQMarkInURL</th>
+      <th>NoOfAmpersandInURL</th>
+      <th>NoOfOtherSpecialCharsInURL</th>
+      <th>SpacialCharRatioInURL</th>
+      <th>IsHTTPS</th>
+      <th>LineOfCode</th>
+      <th>LargestLineLength</th>
+      <th>HasTitle</th>
+      <th>Title</th>
+      <th>DomainTitleMatchScore</th>
+      <th>URLTitleMatchScore</th>
+      <th>HasFavicon</th>
+      <th>Robots</th>
+      <th>IsResponsive</th>
+      <th>NoOfURLRedirect</th>
+      <th>NoOfSelfRedirect</th>
+      <th>HasDescription</th>
+      <th>NoOfPopup</th>
+      <th>NoOfiFrame</th>
+      <th>HasExternalFormSubmit</th>
+      <th>HasSocialNet</th>
+      <th>HasSubmitButton</th>
+      <th>HasHiddenFields</th>
+      <th>HasPasswordField</th>
       <th>Bank</th>
       <th>Pay</th>
       <th>Crypto</th>
@@ -592,6 +750,7 @@ document.write(`
       <th>NoOfSelfRef</th>
       <th>NoOfEmptyRef</th>
       <th>NoOfExternalRef</th>
+      <th>label</th>
     </tr>
   </thead>
   <tbody>
@@ -603,11 +762,44 @@ document.write(`
       <td>24</td>
       <td>0</td>
       <td>com</td>
-      <td>100.0</td>
-      <td>1.000000</td>
-      <td>0.522907</td>
-      <td>0.061933</td>
-      <td>...</td>
+      <td>100.00</td>
+      <td>1.00</td>
+      <td>0.52</td>
+      <td>0.06</td>
+      <td>3</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00</td>
+      <td>18</td>
+      <td>0.58</td>
+      <td>0</td>
+      <td>0.00</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0.03</td>
+      <td>1</td>
+      <td>558</td>
+      <td>9381</td>
+      <td>1</td>
+      <td>à¸‚à¹ˆà¸²à¸§à¸ªà¸” à¸‚à¹ˆà¸²à¸§à¸§à¸±à¸™à¸™à¸µ...</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
       <td>1</td>
       <td>0</td>
       <td>0</td>
@@ -618,6 +810,7 @@ document.write(`
       <td>119</td>
       <td>0</td>
       <td>124</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>1</th>
@@ -627,11 +820,44 @@ document.write(`
       <td>16</td>
       <td>0</td>
       <td>de</td>
-      <td>100.0</td>
-      <td>0.666667</td>
-      <td>0.032650</td>
-      <td>0.050207</td>
-      <td>...</td>
+      <td>100.00</td>
+      <td>0.67</td>
+      <td>0.03</td>
+      <td>0.05</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00</td>
+      <td>9</td>
+      <td>0.39</td>
+      <td>0</td>
+      <td>0.00</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0.09</td>
+      <td>1</td>
+      <td>618</td>
+      <td>9381</td>
+      <td>1</td>
+      <td>johannes gutenberg-universitÃ¤t mainz</td>
+      <td>55.56</td>
+      <td>55.56</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
@@ -642,6 +868,7 @@ document.write(`
       <td>39</td>
       <td>0</td>
       <td>217</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>2</th>
@@ -651,11 +878,44 @@ document.write(`
       <td>22</td>
       <td>0</td>
       <td>uk</td>
-      <td>100.0</td>
-      <td>0.866667</td>
-      <td>0.028555</td>
-      <td>0.064129</td>
-      <td>...</td>
+      <td>100.00</td>
+      <td>0.87</td>
+      <td>0.03</td>
+      <td>0.06</td>
+      <td>2</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00</td>
+      <td>15</td>
+      <td>0.52</td>
+      <td>0</td>
+      <td>0.00</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0.07</td>
+      <td>1</td>
+      <td>467</td>
+      <td>682</td>
+      <td>1</td>
+      <td>voice fm southampton</td>
+      <td>46.67</td>
+      <td>46.67</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
@@ -666,6 +926,7 @@ document.write(`
       <td>42</td>
       <td>2</td>
       <td>5</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>3</th>
@@ -675,11 +936,44 @@ document.write(`
       <td>19</td>
       <td>0</td>
       <td>com</td>
-      <td>100.0</td>
-      <td>1.000000</td>
-      <td>0.522907</td>
-      <td>0.057606</td>
-      <td>...</td>
+      <td>100.00</td>
+      <td>1.00</td>
+      <td>0.52</td>
+      <td>0.06</td>
+      <td>3</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00</td>
+      <td>13</td>
+      <td>0.50</td>
+      <td>0</td>
+      <td>0.00</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0.04</td>
+      <td>1</td>
+      <td>6356</td>
+      <td>26824</td>
+      <td>1</td>
+      <td>home page: seminars in fetal and neonatal medi...</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>12</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
       <td>0</td>
       <td>1</td>
       <td>1</td>
@@ -690,6 +984,7 @@ document.write(`
       <td>22</td>
       <td>1</td>
       <td>31</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>4</th>
@@ -699,11 +994,44 @@ document.write(`
       <td>26</td>
       <td>0</td>
       <td>org</td>
-      <td>100.0</td>
-      <td>1.000000</td>
-      <td>0.079963</td>
-      <td>0.059441</td>
-      <td>...</td>
+      <td>100.00</td>
+      <td>1.00</td>
+      <td>0.08</td>
+      <td>0.06</td>
+      <td>3</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00</td>
+      <td>20</td>
+      <td>0.61</td>
+      <td>0</td>
+      <td>0.00</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0.03</td>
+      <td>1</td>
+      <td>6089</td>
+      <td>28404</td>
+      <td>1</td>
+      <td>fundaciÃ³n rewilding argentina</td>
+      <td>100.00</td>
+      <td>100.00</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
       <td>1</td>
       <td>1</td>
       <td>0</td>
@@ -714,11 +1042,680 @@ document.write(`
       <td>72</td>
       <td>1</td>
       <td>85</td>
+      <td>1</td>
     </tr>
   </tbody>
 </table>
-<p>5 rows × 54 columns</p>
 </div></div></div>
+</div>
+<p>Se observa una mezcla de datos tanto <strong>numéricos</strong> como <strong>categóricos</strong>, lo que sugiere la necesidad de un tratamiento adecuado para cada tipo de variable. Además, se evidencia que el problema es de <strong>clasificación binaria</strong>, donde el valor <span class="math notranslate nohighlight">\(0\)</span> representa una URL clasificada como <strong>phishing</strong>, mientras que el valor <span class="math notranslate nohighlight">\(1\)</span> indica una <strong>URL legítima</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(235795, 55)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Se evidencia un dataset con <span class="math notranslate nohighlight">\(235,795\)</span> registros, 54 variables predictoras y una variable objetivo.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: center;">
+      <th></th>
+      <th>URLLength</th>
+      <th>DomainLength</th>
+      <th>IsDomainIP</th>
+      <th>URLSimilarityIndex</th>
+      <th>CharContinuationRate</th>
+      <th>TLDLegitimateProb</th>
+      <th>URLCharProb</th>
+      <th>TLDLength</th>
+      <th>NoOfSubDomain</th>
+      <th>HasObfuscation</th>
+      <th>NoOfObfuscatedChar</th>
+      <th>ObfuscationRatio</th>
+      <th>NoOfLettersInURL</th>
+      <th>LetterRatioInURL</th>
+      <th>NoOfDegitsInURL</th>
+      <th>DegitRatioInURL</th>
+      <th>NoOfEqualsInURL</th>
+      <th>NoOfQMarkInURL</th>
+      <th>NoOfAmpersandInURL</th>
+      <th>NoOfOtherSpecialCharsInURL</th>
+      <th>SpacialCharRatioInURL</th>
+      <th>IsHTTPS</th>
+      <th>LineOfCode</th>
+      <th>LargestLineLength</th>
+      <th>HasTitle</th>
+      <th>DomainTitleMatchScore</th>
+      <th>URLTitleMatchScore</th>
+      <th>HasFavicon</th>
+      <th>Robots</th>
+      <th>IsResponsive</th>
+      <th>NoOfURLRedirect</th>
+      <th>NoOfSelfRedirect</th>
+      <th>HasDescription</th>
+      <th>NoOfPopup</th>
+      <th>NoOfiFrame</th>
+      <th>HasExternalFormSubmit</th>
+      <th>HasSocialNet</th>
+      <th>HasSubmitButton</th>
+      <th>HasHiddenFields</th>
+      <th>HasPasswordField</th>
+      <th>Bank</th>
+      <th>Pay</th>
+      <th>Crypto</th>
+      <th>HasCopyrightInfo</th>
+      <th>NoOfImage</th>
+      <th>NoOfCSS</th>
+      <th>NoOfJS</th>
+      <th>NoOfSelfRef</th>
+      <th>NoOfEmptyRef</th>
+      <th>NoOfExternalRef</th>
+      <th>label</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>235795.00</td>
+      <td>235795.00</td>
+      <td>235795.00</td>
+      <td>235795.00</td>
+      <td>235795.00</td>
+      <td>235795.00</td>
+      <td>235795.00</td>
+      <td>235795.00</td>
+      <td>235795.00</td>
+      <td>235795.00</td>
+      <td>235795.00</td>
+      <td>235795.00</td>
+      <td>235795.00</td>
+      <td>235795.00</td>
+      <td>235795.00</td>
+      <td>235795.00</td>
+      <td>235795.00</td>
+      <td>235795.00</td>
+      <td>235795.00</td>
+      <td>235795.00</td>
+      <td>235795.00</td>
+      <td>235795.00</td>
+      <td>235795.00</td>
+      <td>235795.00</td>
+      <td>235795.00</td>
+      <td>235795.00</td>
+      <td>235795.00</td>
+      <td>235795.00</td>
+      <td>235795.00</td>
+      <td>235795.00</td>
+      <td>235795.00</td>
+      <td>235795.00</td>
+      <td>235795.00</td>
+      <td>235795.00</td>
+      <td>235795.00</td>
+      <td>235795.00</td>
+      <td>235795.00</td>
+      <td>235795.00</td>
+      <td>235795.00</td>
+      <td>235795.00</td>
+      <td>235795.00</td>
+      <td>235795.00</td>
+      <td>235795.00</td>
+      <td>235795.00</td>
+      <td>235795.00</td>
+      <td>235795.00</td>
+      <td>235795.00</td>
+      <td>235795.00</td>
+      <td>235795.00</td>
+      <td>235795.00</td>
+      <td>235795.00</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>34.57</td>
+      <td>21.47</td>
+      <td>0.00</td>
+      <td>78.43</td>
+      <td>0.85</td>
+      <td>0.26</td>
+      <td>0.06</td>
+      <td>2.76</td>
+      <td>1.16</td>
+      <td>0.00</td>
+      <td>0.02</td>
+      <td>0.00</td>
+      <td>19.43</td>
+      <td>0.52</td>
+      <td>1.88</td>
+      <td>0.03</td>
+      <td>0.06</td>
+      <td>0.03</td>
+      <td>0.03</td>
+      <td>2.34</td>
+      <td>0.06</td>
+      <td>0.78</td>
+      <td>1141.90</td>
+      <td>12789.53</td>
+      <td>0.86</td>
+      <td>50.13</td>
+      <td>52.12</td>
+      <td>0.36</td>
+      <td>0.27</td>
+      <td>0.62</td>
+      <td>0.13</td>
+      <td>0.04</td>
+      <td>0.44</td>
+      <td>0.22</td>
+      <td>1.59</td>
+      <td>0.04</td>
+      <td>0.46</td>
+      <td>0.41</td>
+      <td>0.38</td>
+      <td>0.10</td>
+      <td>0.13</td>
+      <td>0.24</td>
+      <td>0.02</td>
+      <td>0.49</td>
+      <td>26.08</td>
+      <td>6.33</td>
+      <td>10.52</td>
+      <td>65.07</td>
+      <td>2.38</td>
+      <td>49.26</td>
+      <td>0.57</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>41.31</td>
+      <td>9.15</td>
+      <td>0.05</td>
+      <td>28.98</td>
+      <td>0.22</td>
+      <td>0.25</td>
+      <td>0.01</td>
+      <td>0.60</td>
+      <td>0.60</td>
+      <td>0.05</td>
+      <td>1.88</td>
+      <td>0.00</td>
+      <td>29.09</td>
+      <td>0.12</td>
+      <td>11.89</td>
+      <td>0.07</td>
+      <td>0.93</td>
+      <td>0.19</td>
+      <td>0.84</td>
+      <td>3.53</td>
+      <td>0.03</td>
+      <td>0.41</td>
+      <td>3419.95</td>
+      <td>152201.10</td>
+      <td>0.35</td>
+      <td>49.68</td>
+      <td>49.60</td>
+      <td>0.48</td>
+      <td>0.44</td>
+      <td>0.48</td>
+      <td>0.34</td>
+      <td>0.20</td>
+      <td>0.50</td>
+      <td>3.87</td>
+      <td>5.76</td>
+      <td>0.21</td>
+      <td>0.50</td>
+      <td>0.49</td>
+      <td>0.48</td>
+      <td>0.30</td>
+      <td>0.33</td>
+      <td>0.43</td>
+      <td>0.15</td>
+      <td>0.50</td>
+      <td>79.41</td>
+      <td>74.87</td>
+      <td>22.31</td>
+      <td>176.69</td>
+      <td>17.64</td>
+      <td>161.03</td>
+      <td>0.49</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>13.00</td>
+      <td>4.00</td>
+      <td>0.00</td>
+      <td>0.16</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>2.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>2.00</td>
+      <td>22.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>23.00</td>
+      <td>16.00</td>
+      <td>0.00</td>
+      <td>57.02</td>
+      <td>0.68</td>
+      <td>0.01</td>
+      <td>0.05</td>
+      <td>2.00</td>
+      <td>1.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>10.00</td>
+      <td>0.43</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>1.00</td>
+      <td>0.04</td>
+      <td>1.00</td>
+      <td>18.00</td>
+      <td>200.00</td>
+      <td>1.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>1.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>27.00</td>
+      <td>20.00</td>
+      <td>0.00</td>
+      <td>100.00</td>
+      <td>1.00</td>
+      <td>0.08</td>
+      <td>0.06</td>
+      <td>3.00</td>
+      <td>1.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>14.00</td>
+      <td>0.52</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>1.00</td>
+      <td>0.05</td>
+      <td>1.00</td>
+      <td>429.00</td>
+      <td>1090.00</td>
+      <td>1.00</td>
+      <td>75.00</td>
+      <td>100.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>1.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>8.00</td>
+      <td>2.00</td>
+      <td>6.00</td>
+      <td>12.00</td>
+      <td>0.00</td>
+      <td>10.00</td>
+      <td>1.00</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>34.00</td>
+      <td>24.00</td>
+      <td>0.00</td>
+      <td>100.00</td>
+      <td>1.00</td>
+      <td>0.52</td>
+      <td>0.06</td>
+      <td>3.00</td>
+      <td>1.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>20.00</td>
+      <td>0.59</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>3.00</td>
+      <td>0.08</td>
+      <td>1.00</td>
+      <td>1277.00</td>
+      <td>8047.00</td>
+      <td>1.00</td>
+      <td>100.00</td>
+      <td>100.00</td>
+      <td>1.00</td>
+      <td>1.00</td>
+      <td>1.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>1.00</td>
+      <td>0.00</td>
+      <td>1.00</td>
+      <td>0.00</td>
+      <td>1.00</td>
+      <td>1.00</td>
+      <td>1.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>1.00</td>
+      <td>29.00</td>
+      <td>8.00</td>
+      <td>15.00</td>
+      <td>88.00</td>
+      <td>1.00</td>
+      <td>57.00</td>
+      <td>1.00</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>6097.00</td>
+      <td>110.00</td>
+      <td>1.00</td>
+      <td>100.00</td>
+      <td>1.00</td>
+      <td>0.52</td>
+      <td>0.09</td>
+      <td>13.00</td>
+      <td>10.00</td>
+      <td>1.00</td>
+      <td>447.00</td>
+      <td>0.35</td>
+      <td>5191.00</td>
+      <td>0.93</td>
+      <td>2011.00</td>
+      <td>0.68</td>
+      <td>176.00</td>
+      <td>4.00</td>
+      <td>149.00</td>
+      <td>499.00</td>
+      <td>0.40</td>
+      <td>1.00</td>
+      <td>442666.00</td>
+      <td>13975732.00</td>
+      <td>1.00</td>
+      <td>100.00</td>
+      <td>100.00</td>
+      <td>1.00</td>
+      <td>1.00</td>
+      <td>1.00</td>
+      <td>1.00</td>
+      <td>1.00</td>
+      <td>1.00</td>
+      <td>602.00</td>
+      <td>1602.00</td>
+      <td>1.00</td>
+      <td>1.00</td>
+      <td>1.00</td>
+      <td>1.00</td>
+      <td>1.00</td>
+      <td>1.00</td>
+      <td>1.00</td>
+      <td>1.00</td>
+      <td>1.00</td>
+      <td>8956.00</td>
+      <td>35820.00</td>
+      <td>6957.00</td>
+      <td>27397.00</td>
+      <td>4887.00</td>
+      <td>27516.00</td>
+      <td>1.00</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 235795 entries, 0 to 235794
+Data columns (total 55 columns):
+ #   Column                      Non-Null Count   Dtype  
+---  ------                      --------------   -----  
+ 0   URL                         235795 non-null  object 
+ 1   URLLength                   235795 non-null  int64  
+ 2   Domain                      235795 non-null  object 
+ 3   DomainLength                235795 non-null  int64  
+ 4   IsDomainIP                  235795 non-null  int64  
+ 5   TLD                         235795 non-null  object 
+ 6   URLSimilarityIndex          235795 non-null  float64
+ 7   CharContinuationRate        235795 non-null  float64
+ 8   TLDLegitimateProb           235795 non-null  float64
+ 9   URLCharProb                 235795 non-null  float64
+ 10  TLDLength                   235795 non-null  int64  
+ 11  NoOfSubDomain               235795 non-null  int64  
+ 12  HasObfuscation              235795 non-null  int64  
+ 13  NoOfObfuscatedChar          235795 non-null  int64  
+ 14  ObfuscationRatio            235795 non-null  float64
+ 15  NoOfLettersInURL            235795 non-null  int64  
+ 16  LetterRatioInURL            235795 non-null  float64
+ 17  NoOfDegitsInURL             235795 non-null  int64  
+ 18  DegitRatioInURL             235795 non-null  float64
+ 19  NoOfEqualsInURL             235795 non-null  int64  
+ 20  NoOfQMarkInURL              235795 non-null  int64  
+ 21  NoOfAmpersandInURL          235795 non-null  int64  
+ 22  NoOfOtherSpecialCharsInURL  235795 non-null  int64  
+ 23  SpacialCharRatioInURL       235795 non-null  float64
+ 24  IsHTTPS                     235795 non-null  int64  
+ 25  LineOfCode                  235795 non-null  int64  
+ 26  LargestLineLength           235795 non-null  int64  
+ 27  HasTitle                    235795 non-null  int64  
+ 28  Title                       235795 non-null  object 
+ 29  DomainTitleMatchScore       235795 non-null  float64
+ 30  URLTitleMatchScore          235795 non-null  float64
+ 31  HasFavicon                  235795 non-null  int64  
+ 32  Robots                      235795 non-null  int64  
+ 33  IsResponsive                235795 non-null  int64  
+ 34  NoOfURLRedirect             235795 non-null  int64  
+ 35  NoOfSelfRedirect            235795 non-null  int64  
+ 36  HasDescription              235795 non-null  int64  
+ 37  NoOfPopup                   235795 non-null  int64  
+ 38  NoOfiFrame                  235795 non-null  int64  
+ 39  HasExternalFormSubmit       235795 non-null  int64  
+ 40  HasSocialNet                235795 non-null  int64  
+ 41  HasSubmitButton             235795 non-null  int64  
+ 42  HasHiddenFields             235795 non-null  int64  
+ 43  HasPasswordField            235795 non-null  int64  
+ 44  Bank                        235795 non-null  int64  
+ 45  Pay                         235795 non-null  int64  
+ 46  Crypto                      235795 non-null  int64  
+ 47  HasCopyrightInfo            235795 non-null  int64  
+ 48  NoOfImage                   235795 non-null  int64  
+ 49  NoOfCSS                     235795 non-null  int64  
+ 50  NoOfJS                      235795 non-null  int64  
+ 51  NoOfSelfRef                 235795 non-null  int64  
+ 52  NoOfEmptyRef                235795 non-null  int64  
+ 53  NoOfExternalRef             235795 non-null  int64  
+ 54  label                       235795 non-null  int64  
+dtypes: float64(10), int64(41), object(4)
+memory usage: 98.9+ MB
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>URL                           0
+URLLength                     0
+Domain                        0
+DomainLength                  0
+IsDomainIP                    0
+TLD                           0
+URLSimilarityIndex            0
+CharContinuationRate          0
+TLDLegitimateProb             0
+URLCharProb                   0
+TLDLength                     0
+NoOfSubDomain                 0
+HasObfuscation                0
+NoOfObfuscatedChar            0
+ObfuscationRatio              0
+NoOfLettersInURL              0
+LetterRatioInURL              0
+NoOfDegitsInURL               0
+DegitRatioInURL               0
+NoOfEqualsInURL               0
+NoOfQMarkInURL                0
+NoOfAmpersandInURL            0
+NoOfOtherSpecialCharsInURL    0
+SpacialCharRatioInURL         0
+IsHTTPS                       0
+LineOfCode                    0
+LargestLineLength             0
+HasTitle                      0
+Title                         0
+DomainTitleMatchScore         0
+URLTitleMatchScore            0
+HasFavicon                    0
+Robots                        0
+IsResponsive                  0
+NoOfURLRedirect               0
+NoOfSelfRedirect              0
+HasDescription                0
+NoOfPopup                     0
+NoOfiFrame                    0
+HasExternalFormSubmit         0
+HasSocialNet                  0
+HasSubmitButton               0
+HasHiddenFields               0
+HasPasswordField              0
+Bank                          0
+Pay                           0
+Crypto                        0
+HasCopyrightInfo              0
+NoOfImage                     0
+NoOfCSS                       0
+NoOfJS                        0
+NoOfSelfRef                   0
+NoOfEmptyRef                  0
+NoOfExternalRef               0
+label                         0
+dtype: int64
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -735,6 +1732,8 @@ Name: count, dtype: int64
 </div>
 </div>
 </div>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -773,7 +1772,7 @@ Name: count, dtype: int64
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Welcome to your Jupyter Book</p>
+        <p class="prev-next-title"><strong>Introducción</strong></p>
       </div>
     </a>
 </div>
@@ -782,6 +1781,43 @@ Name: count, dtype: int64
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#informacion-del-conjunto-de-datos"><em><strong>Información del Conjunto de datos</strong></em></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metadatos"><em><strong>Metadatos</strong></em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables"><em><strong>Variables</strong></em></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#informacion-de-la-url-y-el-dominio"><strong>Información de la URL y el Dominio</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#caracteristicas-basadas-en-similitud-y-probabilidad"><strong>Características basadas en similitud y probabilidad</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-caracteres-en-la-url"><strong>Análisis de caracteres en la URL</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#presencia-de-tecnicas-de-ofuscacion"><strong>Presencia de técnicas de ofuscación</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#protocolo-y-seguridad"><strong>Protocolo y seguridad</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#estructura-del-codigo-fuente"><strong>Estructura del código fuente</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#redirecciones-y-formularios"><strong>Redirecciones y formularios</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#elementos-graficos-y-multimedia"><strong>Elementos gráficos y multimedia</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#referencias-y-enlaces"><strong>Referencias y enlaces</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#presencia-de-elementos-financieros-y-sociales"><strong>Presencia de elementos financieros y sociales</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#informacion-de-derechos-y-seguridad"><strong>Información de derechos y seguridad</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-objetivo"><strong>Variable objetivo</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-exploratorio-de-datos"><em><strong>Análisis Exploratorio de Datos</strong></em></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estadisticas-descriptivas"><em><strong>Estadísticas Descriptivas</strong></em></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
