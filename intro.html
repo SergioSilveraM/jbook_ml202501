@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Proyecto Predicción de Pagos FBV &#8212; Proyecto Predición de pagos</title>
+    <title>Introducción &#8212; Machine Learning</title>
   
   
   
@@ -16,33 +16,30 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!--
-    this give us a css class that will be invisible only if js is disabled
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <!-- So that users can add custom icons -->
-  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
@@ -60,16 +57,13 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Exploratory Analysis Data" href="main.html" />
+    <link rel="next" title="Datos y EDA" href="EDA.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -85,8 +79,19 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <dialog id="pst-search-dialog">
-    
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -94,6 +99,7 @@
   <input type="search"
          class="form-control"
          name="q"
+         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -101,8 +107,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
+</form></div>
+  </div>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -120,8 +126,7 @@
       
         
       
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -150,45 +155,34 @@
       
     
     
-    <img src="_static/logo.png" class="logo__image only-light" alt="Proyecto Predición de pagos - Home"/>
-    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt="Proyecto Predición de pagos - Home"/>
+    <img src="_static/logo.png" class="logo__image only-light" alt="Machine Learning - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Machine Learning - Home"/>`);</script>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button></div>
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1 current active">
                 <a class="reference internal" href="#">
-                    Proyecto Predicción de Pagos FBV
+                    Introducción
                 </a>
             </li>
         </ul>
         <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="main.html"><em><strong>Exploratory Analysis Data</strong></em></a></li>
-<li class="toctree-l1"><a class="reference internal" href="cart.html"><em><strong>Cart</strong></em></a></li>
-<li class="toctree-l1"><a class="reference internal" href="random_forest.html"><em><strong>Random Forest</strong></em></a></li>
-<li class="toctree-l1"><a class="reference internal" href="knn.html"><em><strong>KNN</strong></em></a></li>
-<li class="toctree-l1"><a class="reference internal" href="svc.html"><em><strong>SVC</strong></em></a></li>
-<li class="toctree-l1"><a class="reference internal" href="xgboost.html"><em><strong>XG-Boost</strong></em></a></li>
-<li class="toctree-l1"><a class="reference internal" href="lgbm.html"><em><strong>LGBM</strong></em></a></li>
-<li class="toctree-l1"><a class="reference internal" href="tabnet.html"><em><strong>TabNet</strong></em></a></li>
-<li class="toctree-l1"><a class="reference internal" href="mlp.html"><em><strong>MLP</strong></em></a></li>
-<li class="toctree-l1"><a class="reference internal" href="cart_balanced.html"><em><strong>Cart Balanced</strong></em></a></li>
-<li class="toctree-l1"><a class="reference internal" href="random_forest_balanced.html"><em><strong>Random Forest Balanced</strong></em></a></li>
-<li class="toctree-l1"><a class="reference internal" href="xgboost_balanced.html"><em><strong>XG-Boost Balanced</strong></em></a></li>
-<li class="toctree-l1"><a class="reference internal" href="tabnet_balanced.html"><em><strong>TabNet Balanced</strong></em></a></li>
-<li class="toctree-l1"><a class="reference internal" href="mlp_balanced.html"><em><strong>MLP</strong></em></a></li>
-<li class="toctree-l1"><a class="reference internal" href="bench.html"><em><strong>BenchMark</strong></em></a></li>
-<li class="toctree-l1"><a class="reference internal" href="variables.html"><em><strong>Profiles and Levels</strong></em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="EDA.html"><em><strong>Datos y EDA</strong></em></a></li>
 </ul>
 
     </div>
@@ -197,14 +191,9 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
-      <div class="sidebar-primary-item">
-<div id="ethical-ad-placement"
-      class="flat"
-      data-ea-publisher="readthedocs"
-      data-ea-type="readthedocs-sidebar"
-      data-ea-manual="true">
-</div></div>
   </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -237,50 +226,18 @@
 <div class="article-header-buttons">
 
 
-
-
-
-<div class="dropdown dropdown-source-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
-    <i class="fab fa-github"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
-   class="btn btn-sm btn-source-repository-button dropdown-item"
+<a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
    title="Source repository"
-   data-bs-placement="left" data-bs-toggle="tooltip"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   <i class="fab fa-github"></i>
   </span>
-<span class="btn__text-container">Repository</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fintro.html&body=Your%20issue%20content%20here." target="_blank"
-   class="btn btn-sm btn-source-issues-button dropdown-item"
-   title="Open an issue"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
 
-<span class="btn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="btn__text-container">Open issue</span>
 </a>
-</li>
-      
-  </ul>
-</div>
 
 
 
@@ -348,16 +305,24 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
 
 
-<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-</button>
+  </button>
+`);
+</script>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -371,7 +336,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Proyecto Predicción de Pagos FBV</h1>
+    <h1>Introducción</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -381,9 +346,7 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descripcion"><strong>Descripción</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivos"><strong>Objetivos</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fases"><strong>Fases</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integrantes"><strong>Integrantes</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tabla-de-contenido"><strong>Tabla de Contenido</strong></a></li>
 </ul>
             </nav>
@@ -396,63 +359,30 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="proyecto-prediccion-de-pagos-fbv">
-<h1><em><strong>Proyecto Predicción de Pagos FBV</strong></em><a class="headerlink" href="#proyecto-prediccion-de-pagos-fbv" title="Link to this heading">#</a></h1>
-<section id="descripcion">
-<h2><strong>Descripción</strong><a class="headerlink" href="#descripcion" title="Link to this heading">#</a></h2>
-<p>El objetivo principal del proyecto es construir un modelo de machine learning integrado con mecanismos de lógica difusa para predecir, con un alto grado de precisión, el estado en el que un cliente finalizará el mes. Los estados posibles son: <strong>Caído</strong>, <strong>Mantenido</strong> y <strong>Normalizado</strong>. Este modelo permitirá anticipar la condición del cliente y, con base en ello, optimizar estrategias de negociación para alcanzar acuerdos de pago efectivos.</p>
-</section>
-<section id="objetivos">
-<h2><strong>Objetivos</strong><a class="headerlink" href="#objetivos" title="Link to this heading">#</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="introduccion">
+<h1><strong>Introducción</strong><a class="headerlink" href="#introduccion" title="Link to this heading">#</a></h1>
+<p>El crecimiento del comercio electrónico y la digitalización de servicios ha incrementado significativamente la cantidad de ataques cibernéticos, entre los cuales el phishing es una de las amenazas más prevalentes. Los sitios web de phishing buscan engañar a los usuarios para que revelen información sensible, como credenciales bancarias o datos personales, representando un riesgo crítico en la seguridad informática.</p>
+<p>En este informe, se desarrolla un modelo de <strong>aprendizaje automático (ML)</strong> para la detección de sitios web de phishing, basado en un conjunto de datos de clasificación que contiene múltiples características extraídas de la estructura y el comportamiento de las páginas web.</p>
+<p>El estudio se organiza en las siguientes etapas:</p>
 <ol class="arabic simple">
-<li><p><strong>Desarrollar un modelo predictivo:</strong> Utilizar técnicas avanzadas de machine learning para predecir el estado final del cliente empleando variables históricas, transaccionales y demográficas relevantes.</p></li>
-<li><p><strong>Integrar lógica difusa:</strong> Incorporar mecanismos de lógica difusa para manejar la incertidumbre y subjetividad en variables críticas que afectan la negociación, como la disposición al pago, franja de mora, saldos, etc.</p></li>
-<li><p><strong>Optimizar estrategias de negociación:</strong> Con base en las predicciones del modelo y las reglas difusas generadas, proponer estrategias personalizadas y efectivas para alcanzar acuerdos de pago con alra probabilidad de cumplimiento.</p></li>
-<li><p><strong>Validar el modelo y las estrategias:</strong> Implementar el modelo en un entorno controlado para evaluar su precisión, capacidad de generalización y efectividad en la negociación.</p></li>
+<li><p><strong>Análisis Exploratorio de Datos (EDA)</strong>: Se examina la distribución de las variables, la presencia de valores atípicos y posibles correlaciones que puedan influir en la clasificación.</p></li>
+<li><p><strong>Benchmarking de Modelos</strong>: Se entrenan y comparan diversos algoritmos de clasificación, incluyendo enfoques tradicionales como <strong>Árboles de Decisión, Random Forest, XGBoost, SVM y Redes Neuronales</strong>, utilizando métricas clave como <strong>precisión, recall, F1-score y AUC-ROC</strong>.</p></li>
+<li><p><strong>Propuesta de Modelo Optimizado</strong>: Basado en los resultados del benchmark, se ajusta un modelo personalizado con optimización de hiperparámetros, técnicas de balanceo de clases y selección de características para mejorar la capacidad predictiva.</p></li>
 </ol>
-</section>
-<section id="fases">
-<h2><strong>Fases</strong><a class="headerlink" href="#fases" title="Link to this heading">#</a></h2>
-<ol class="arabic simple">
-<li><p><strong>Fase 1:</strong> Modelado - Machine Learning</p></li>
-<li><p><strong>Fase 2:</strong> Modelado - Lógica Difusa</p>
+<p>Este informe busca no solo comparar la efectividad de distintos enfoques, sino también desarrollar un modelo que ofrezca un rendimiento superior en la detección de sitios web maliciosos, con aplicaciones prácticas en <strong>seguridad informática y prevención de fraudes en línea</strong>.</p>
+<section id="integrantes">
+<h2><strong>Integrantes</strong><a class="headerlink" href="#integrantes" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Caracterización de variables</p></li>
-<li><p>Creación de Reglas</p></li>
-<li><p>Definición de funciones de pertenencia</p></li>
-<li><p>Validación</p></li>
+<li><p>Sergio Silvera</p></li>
+<li><p>Alvaro Romano</p></li>
+<li><p>Miguel Cabrera</p></li>
 </ul>
-</li>
-<li><p><strong>Integración y Deslpliegue</strong></p>
-<ul class="simple">
-<li><p>Integración de Modelo ML y FL</p></li>
-<li><p>Creación de interfaz de usuario</p></li>
-<li><p>Prueba piloto</p></li>
-</ul>
-</li>
-</ol>
-<p><img alt="alt text" src="_images/image.png" /></p>
 </section>
 <section id="tabla-de-contenido">
 <h2><strong>Tabla de Contenido</strong><a class="headerlink" href="#tabla-de-contenido" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="main.html"><em><strong>Exploratory Analysis Data</strong></em></a></li>
-<li class="toctree-l1"><a class="reference internal" href="cart.html"><em><strong>Cart</strong></em></a></li>
-<li class="toctree-l1"><a class="reference internal" href="random_forest.html"><em><strong>Random Forest</strong></em></a></li>
-<li class="toctree-l1"><a class="reference internal" href="knn.html"><em><strong>KNN</strong></em></a></li>
-<li class="toctree-l1"><a class="reference internal" href="svc.html"><em><strong>SVC</strong></em></a></li>
-<li class="toctree-l1"><a class="reference internal" href="xgboost.html"><em><strong>XG-Boost</strong></em></a></li>
-<li class="toctree-l1"><a class="reference internal" href="lgbm.html"><em><strong>LGBM</strong></em></a></li>
-<li class="toctree-l1"><a class="reference internal" href="tabnet.html"><em><strong>TabNet</strong></em></a></li>
-<li class="toctree-l1"><a class="reference internal" href="mlp.html"><em><strong>MLP</strong></em></a></li>
-<li class="toctree-l1"><a class="reference internal" href="cart_balanced.html"><em><strong>Cart Balanced</strong></em></a></li>
-<li class="toctree-l1"><a class="reference internal" href="random_forest_balanced.html"><em><strong>Random Forest Balanced</strong></em></a></li>
-<li class="toctree-l1"><a class="reference internal" href="xgboost_balanced.html"><em><strong>XG-Boost Balanced</strong></em></a></li>
-<li class="toctree-l1"><a class="reference internal" href="tabnet_balanced.html"><em><strong>TabNet Balanced</strong></em></a></li>
-<li class="toctree-l1"><a class="reference internal" href="mlp_balanced.html"><em><strong>MLP</strong></em></a></li>
-<li class="toctree-l1"><a class="reference internal" href="bench.html"><em><strong>BenchMark</strong></em></a></li>
-<li class="toctree-l1"><a class="reference internal" href="variables.html"><em><strong>Profiles and Levels</strong></em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="EDA.html"><em><strong>Datos y EDA</strong></em></a></li>
 </ul>
 </div>
 </section>
@@ -489,11 +419,11 @@
                   
 <div class="prev-next-area">
     <a class="right-next"
-       href="main.html"
+       href="EDA.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><em><strong>Exploratory Analysis Data</strong></em></p>
+        <p class="prev-next-title"><em><strong>Datos y EDA</strong></em></p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -504,8 +434,7 @@
             
             
               
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -514,9 +443,7 @@
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descripcion"><strong>Descripción</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivos"><strong>Objetivos</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fases"><strong>Fases</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integrantes"><strong>Integrantes</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tabla-de-contenido"><strong>Tabla de Contenido</strong></a></li>
 </ul>
   </nav></div>
@@ -532,7 +459,7 @@
   <div class="footer-item">
     
 <p class="component-author">
-By Sergio Silvera
+By Sergio Silvera - Alvaro Romano - Miguel Cabrera
 </p>
 
   </div>
@@ -542,7 +469,7 @@ By Sergio Silvera
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2025.
       <br/>
     
   </p>
@@ -566,8 +493,8 @@ By Sergio Silvera
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

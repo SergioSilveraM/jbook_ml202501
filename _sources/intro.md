@@ -1,33 +1,20 @@
-# ***Proyecto Predicción de Pagos FBV***
+# **Introducción**  
 
-## **Descripción**
+El crecimiento del comercio electrónico y la digitalización de servicios ha incrementado significativamente la cantidad de ataques cibernéticos, entre los cuales el phishing es una de las amenazas más prevalentes. Los sitios web de phishing buscan engañar a los usuarios para que revelen información sensible, como credenciales bancarias o datos personales, representando un riesgo crítico en la seguridad informática.  
 
-El objetivo principal del proyecto es construir un modelo de machine learning integrado con mecanismos de lógica difusa para predecir, con un alto grado de precisión, el estado en el que un cliente finalizará el mes. Los estados posibles son: **Caído**, **Mantenido** y **Normalizado**. Este modelo permitirá anticipar la condición del cliente y, con base en ello, optimizar estrategias de negociación para alcanzar acuerdos de pago efectivos.
+En este informe, se desarrolla un modelo de **aprendizaje automático (ML)** para la detección de sitios web de phishing, basado en un conjunto de datos de clasificación que contiene múltiples características extraídas de la estructura y el comportamiento de las páginas web.  
 
-## **Objetivos**
+El estudio se organiza en las siguientes etapas:  
+1. **Análisis Exploratorio de Datos (EDA)**: Se examina la distribución de las variables, la presencia de valores atípicos y posibles correlaciones que puedan influir en la clasificación.  
+2. **Benchmarking de Modelos**: Se entrenan y comparan diversos algoritmos de clasificación, incluyendo enfoques tradicionales como **Árboles de Decisión, Random Forest, XGBoost, SVM y Redes Neuronales**, utilizando métricas clave como **precisión, recall, F1-score y AUC-ROC**.  
+3. **Propuesta de Modelo Optimizado**: Basado en los resultados del benchmark, se ajusta un modelo personalizado con optimización de hiperparámetros, técnicas de balanceo de clases y selección de características para mejorar la capacidad predictiva.  
 
-1. **Desarrollar un modelo predictivo:** Utilizar técnicas avanzadas de machine learning para predecir el estado final del cliente empleando variables históricas, transaccionales y demográficas relevantes.
+Este informe busca no solo comparar la efectividad de distintos enfoques, sino también desarrollar un modelo que ofrezca un rendimiento superior en la detección de sitios web maliciosos, con aplicaciones prácticas en **seguridad informática y prevención de fraudes en línea**.
 
-2. **Integrar lógica difusa:** Incorporar mecanismos de lógica difusa para manejar la incertidumbre y subjetividad en variables críticas que afectan la negociación, como la disposición al pago, franja de mora, saldos, etc.
-
-3. **Optimizar estrategias de negociación:** Con base en las predicciones del modelo y las reglas difusas generadas, proponer estrategias personalizadas y efectivas para alcanzar acuerdos de pago con alra probabilidad de cumplimiento.
-
-4. **Validar el modelo y las estrategias:** Implementar el modelo en un entorno controlado para evaluar su precisión, capacidad de generalización y efectividad en la negociación.
-
-## **Fases**
-
-1. **Fase 1:** Modelado - Machine Learning
-2. **Fase 2:** Modelado - Lógica Difusa
-    - Caracterización de variables
-    - Creación de Reglas
-    - Definición de funciones de pertenencia
-    - Validación
-3. **Integración y Deslpliegue**
-    - Integración de Modelo ML y FL
-    - Creación de interfaz de usuario
-    - Prueba piloto 
-
-![alt text](./img/image.png)
+## **Integrantes**
+- Sergio Silvera
+- Alvaro Romano 
+- Miguel Cabrera
 
 ## **Tabla de Contenido**
 ```{tableofcontents}
