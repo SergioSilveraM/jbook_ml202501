@@ -1,15 +1,16 @@
-# **Introducción**  
+# **Clasificador Híbrido para la Predicción del Nivel de Inglés en Saber Pro: Un Enfoque Basado en Ensamble**  
 
-El crecimiento del comercio electrónico y la digitalización de servicios ha incrementado significativamente la cantidad de ataques cibernéticos, entre los cuales el phishing es una de las amenazas más prevalentes. Los sitios web de phishing buscan engañar a los usuarios para que revelen información sensible, como credenciales bancarias o datos personales, representando un riesgo crítico en la seguridad informática.  
+La evaluación del nivel de inglés en estudiantes universitarios colombianos, mediante las Pruebas Saber Pro, constituye una herramienta clave para diagnosticar competencias comunicativas en un contexto globalizado. Estas pruebas estandarizadas no solo permiten medir el dominio del idioma, sino que también ofrecen insumos valiosos para analizar el impacto de variables socioeconómicas, académicas y demográficas en el desempeño estudiantil.
 
-En este informe, se desarrolla un modelo de **aprendizaje automático (ML)** para la detección de sitios web de phishing, basado en un conjunto de datos de clasificación que contiene múltiples características extraídas de la estructura y el comportamiento de las páginas web.  
+En este estudio, se propone un modelo de aprendizaje automático (ML) orientado a la predicción del nivel de inglés alcanzado en la prueba **Saber Pro**, a partir de datos históricos recolectados entre $2018$ y $2022$. El enfoque se basa en un esquema de ensamble tipo **stacking**, combinando la capacidad de generalización de **XGBoost** y **Multi-Layer Perceptron (MLP)** como clasificadores base, con la robustez de un **Random Forest** como metamodelo final.
 
-El estudio se organiza en las siguientes etapas:  
-1. **Análisis Exploratorio de Datos (EDA)**: Se examina la distribución de las variables, la presencia de valores atípicos y posibles correlaciones que puedan influir en la clasificación.  
-2. **Benchmarking de Modelos**: Se entrenan y comparan diversos algoritmos de clasificación, incluyendo enfoques tradicionales como **Árboles de Decisión, Random Forest, XGBoost, SVM y Redes Neuronales**, utilizando métricas clave como **precisión, recall, F1-score y AUC-ROC**.  
-3. **Propuesta de Modelo Optimizado**: Basado en los resultados del benchmark, se ajusta un modelo personalizado con optimización de hiperparámetros, técnicas de balanceo de clases y selección de características para mejorar la capacidad predictiva.  
+El desarrollo del trabajo se estructura en las siguientes etapas:
 
-Este informe busca no solo comparar la efectividad de distintos enfoques, sino también desarrollar un modelo que ofrezca un rendimiento superior en la detección de sitios web maliciosos, con aplicaciones prácticas en **seguridad informática y prevención de fraudes en línea**.
+* **Análisis Exploratorio de Datos (EDA)**: Se caracterizan las variables predictoras, se identifican relaciones no lineales y se analizan distribuciones que podrían incidir en el rendimiento en inglés.
+Entrenamiento y Comparación de Modelos Base: Se evalúan clasificadores individuales tradicionales y se contrastan sus métricas de desempeño frente a la arquitectura de ensamble propuesta.
+* **Construcción del Modelo Apilado:** Se implementa un modelo híbrido mediante **stacking**, con validación cruzada y ajuste de hiperparámetros, optimizando métricas como accuracy, F1-score y AUC-ROC.
+* **Benchmarking Final:** Se comparan los resultados del modelo híbrido con enfoques base, evidenciando mejoras sustanciales en la predicción del nivel de inglés.
+El objetivo del informe es construir un modelo robusto y explicativo que permita anticipar el desempeño en inglés con alto grado de **precisión**, brindando apoyo a procesos de análisis educativo y toma de decisiones pedagógicas.
 
 ## **Integrantes**
 - Sergio Silvera

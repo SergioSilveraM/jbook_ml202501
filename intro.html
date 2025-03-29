@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Introducción &#8212; Machine Learning</title>
+    <title>Clasificador Híbrido para la Predicción del Nivel de Inglés en Saber Pro: Un Enfoque Basado en Ensamble &#8212; Machine Learning</title>
   
   
   
@@ -89,7 +89,7 @@
     <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?v=4e4fcec4"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Revisión de Literatura" href="review.html" />
+    <link rel="next" title="Análisis Exploratorio de Datos" href="EDA.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -205,13 +205,12 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1 current active">
                 <a class="reference internal" href="#">
-                    Introducción
+                    Clasificador Híbrido para la Predicción del Nivel de Inglés en Saber Pro: Un Enfoque Basado en Ensamble
                 </a>
             </li>
         </ul>
         <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="review.html"><em><strong>Revisión de Literatura</strong></em></a></li>
-<li class="toctree-l1"><a class="reference internal" href="EDA.html"><em><strong>Detección de URLs de Phishing mediante un Enfoque Híbrido con Machine Learning</strong></em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="EDA.html"><em><strong>Análisis Exploratorio de Datos</strong></em></a></li>
 </ul>
 
     </div>
@@ -365,7 +364,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Introducción</h1>
+    <h1>Clasificador Híbrido para la Predicción del Nivel de Inglés en Saber Pro: Un Enfoque Basado en Ensamble</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -388,17 +387,18 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="introduccion">
-<h1><strong>Introducción</strong><a class="headerlink" href="#introduccion" title="Link to this heading">#</a></h1>
-<p>El crecimiento del comercio electrónico y la digitalización de servicios ha incrementado significativamente la cantidad de ataques cibernéticos, entre los cuales el phishing es una de las amenazas más prevalentes. Los sitios web de phishing buscan engañar a los usuarios para que revelen información sensible, como credenciales bancarias o datos personales, representando un riesgo crítico en la seguridad informática.</p>
-<p>En este informe, se desarrolla un modelo de <strong>aprendizaje automático (ML)</strong> para la detección de sitios web de phishing, basado en un conjunto de datos de clasificación que contiene múltiples características extraídas de la estructura y el comportamiento de las páginas web.</p>
-<p>El estudio se organiza en las siguientes etapas:</p>
-<ol class="arabic simple">
-<li><p><strong>Análisis Exploratorio de Datos (EDA)</strong>: Se examina la distribución de las variables, la presencia de valores atípicos y posibles correlaciones que puedan influir en la clasificación.</p></li>
-<li><p><strong>Benchmarking de Modelos</strong>: Se entrenan y comparan diversos algoritmos de clasificación, incluyendo enfoques tradicionales como <strong>Árboles de Decisión, Random Forest, XGBoost, SVM y Redes Neuronales</strong>, utilizando métricas clave como <strong>precisión, recall, F1-score y AUC-ROC</strong>.</p></li>
-<li><p><strong>Propuesta de Modelo Optimizado</strong>: Basado en los resultados del benchmark, se ajusta un modelo personalizado con optimización de hiperparámetros, técnicas de balanceo de clases y selección de características para mejorar la capacidad predictiva.</p></li>
-</ol>
-<p>Este informe busca no solo comparar la efectividad de distintos enfoques, sino también desarrollar un modelo que ofrezca un rendimiento superior en la detección de sitios web maliciosos, con aplicaciones prácticas en <strong>seguridad informática y prevención de fraudes en línea</strong>.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="clasificador-hibrido-para-la-prediccion-del-nivel-de-ingles-en-saber-pro-un-enfoque-basado-en-ensamble">
+<h1><strong>Clasificador Híbrido para la Predicción del Nivel de Inglés en Saber Pro: Un Enfoque Basado en Ensamble</strong><a class="headerlink" href="#clasificador-hibrido-para-la-prediccion-del-nivel-de-ingles-en-saber-pro-un-enfoque-basado-en-ensamble" title="Link to this heading">#</a></h1>
+<p>La evaluación del nivel de inglés en estudiantes universitarios colombianos, mediante las Pruebas Saber Pro, constituye una herramienta clave para diagnosticar competencias comunicativas en un contexto globalizado. Estas pruebas estandarizadas no solo permiten medir el dominio del idioma, sino que también ofrecen insumos valiosos para analizar el impacto de variables socioeconómicas, académicas y demográficas en el desempeño estudiantil.</p>
+<p>En este estudio, se propone un modelo de aprendizaje automático (ML) orientado a la predicción del nivel de inglés alcanzado en la prueba <strong>Saber Pro</strong>, a partir de datos históricos recolectados entre <span class="math notranslate nohighlight">\(2018\)</span> y <span class="math notranslate nohighlight">\(2022\)</span>. El enfoque se basa en un esquema de ensamble tipo <strong>stacking</strong>, combinando la capacidad de generalización de <strong>XGBoost</strong> y <strong>Multi-Layer Perceptron (MLP)</strong> como clasificadores base, con la robustez de un <strong>Random Forest</strong> como metamodelo final.</p>
+<p>El desarrollo del trabajo se estructura en las siguientes etapas:</p>
+<ul class="simple">
+<li><p><strong>Análisis Exploratorio de Datos (EDA)</strong>: Se caracterizan las variables predictoras, se identifican relaciones no lineales y se analizan distribuciones que podrían incidir en el rendimiento en inglés.
+Entrenamiento y Comparación de Modelos Base: Se evalúan clasificadores individuales tradicionales y se contrastan sus métricas de desempeño frente a la arquitectura de ensamble propuesta.</p></li>
+<li><p><strong>Construcción del Modelo Apilado:</strong> Se implementa un modelo híbrido mediante <strong>stacking</strong>, con validación cruzada y ajuste de hiperparámetros, optimizando métricas como accuracy, F1-score y AUC-ROC.</p></li>
+<li><p><strong>Benchmarking Final:</strong> Se comparan los resultados del modelo híbrido con enfoques base, evidenciando mejoras sustanciales en la predicción del nivel de inglés.
+El objetivo del informe es construir un modelo robusto y explicativo que permita anticipar el desempeño en inglés con alto grado de <strong>precisión</strong>, brindando apoyo a procesos de análisis educativo y toma de decisiones pedagógicas.</p></li>
+</ul>
 <section id="integrantes">
 <h2><strong>Integrantes</strong><a class="headerlink" href="#integrantes" title="Link to this heading">#</a></h2>
 <ul class="simple">
@@ -411,8 +411,7 @@ document.write(`
 <h2><strong>Tabla de Contenido</strong><a class="headerlink" href="#tabla-de-contenido" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="review.html"><em><strong>Revisión de Literatura</strong></em></a></li>
-<li class="toctree-l1"><a class="reference internal" href="EDA.html"><em><strong>Detección de URLs de Phishing mediante un Enfoque Híbrido con Machine Learning</strong></em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="EDA.html"><em><strong>Análisis Exploratorio de Datos</strong></em></a></li>
 </ul>
 </div>
 </section>
@@ -449,11 +448,11 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="right-next"
-       href="review.html"
+       href="EDA.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><em><strong>Revisión de Literatura</strong></em></p>
+        <p class="prev-next-title"><em><strong>Análisis Exploratorio de Datos</strong></em></p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
