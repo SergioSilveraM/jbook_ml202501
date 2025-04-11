@@ -1,0 +1,94 @@
+Traceback (most recent call last):
+  File "/Users/sergiosilveramurcia/Conda/miniconda3/envs/MachineLearning/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/Users/sergiosilveramurcia/Conda/miniconda3/envs/MachineLearning/lib/python3.9/site-packages/nbclient/client.py", line 1319, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/Users/sergiosilveramurcia/Conda/miniconda3/envs/MachineLearning/lib/python3.9/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+  File "/Users/sergiosilveramurcia/Conda/miniconda3/envs/MachineLearning/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/Users/sergiosilveramurcia/Conda/miniconda3/envs/MachineLearning/lib/python3.9/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/Users/sergiosilveramurcia/Conda/miniconda3/envs/MachineLearning/lib/python3.9/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/sergiosilveramurcia/Conda/miniconda3/envs/MachineLearning/lib/python3.9/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+model, metrics, study, visualizations = nested_cv(X, y, numeric_features, categorical_features)
+------------------
+
+----- stderr -----
+/Users/sergiosilveramurcia/Conda/miniconda3/envs/MachineLearning/lib/python3.9/site-packages/sklearn/base.py:380: InconsistentVersionWarning: Trying to unpickle estimator SimpleImputer from version 1.5.2 when using version 1.6.1. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+/Users/sergiosilveramurcia/Conda/miniconda3/envs/MachineLearning/lib/python3.9/site-packages/sklearn/base.py:380: InconsistentVersionWarning: Trying to unpickle estimator MinMaxScaler from version 1.5.2 when using version 1.6.1. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+/Users/sergiosilveramurcia/Conda/miniconda3/envs/MachineLearning/lib/python3.9/site-packages/sklearn/base.py:380: InconsistentVersionWarning: Trying to unpickle estimator Pipeline from version 1.5.2 when using version 1.6.1. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+/Users/sergiosilveramurcia/Conda/miniconda3/envs/MachineLearning/lib/python3.9/site-packages/sklearn/base.py:380: InconsistentVersionWarning: Trying to unpickle estimator OneHotEncoder from version 1.5.2 when using version 1.6.1. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+/Users/sergiosilveramurcia/Conda/miniconda3/envs/MachineLearning/lib/python3.9/site-packages/sklearn/base.py:380: InconsistentVersionWarning: Trying to unpickle estimator ColumnTransformer from version 1.5.2 when using version 1.6.1. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+/Users/sergiosilveramurcia/Conda/miniconda3/envs/MachineLearning/lib/python3.9/site-packages/sklearn/base.py:380: InconsistentVersionWarning: Trying to unpickle estimator MultinomialNB from version 1.5.2 when using version 1.6.1. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mValueError[0m                                Traceback (most recent call last)
+Cell [0;32mIn[10], line 1[0m
+[0;32m----> 1[0m model, metrics, study, visualizations [38;5;241m=[39m [43mnested_cv[49m[43m([49m[43mX[49m[43m,[49m[43m [49m[43my[49m[43m,[49m[43m [49m[43mnumeric_features[49m[43m,[49m[43m [49m[43mcategorical_features[49m[43m)[49m
+
+Cell [0;32mIn[9], line 12[0m, in [0;36mnested_cv[0;34m(X, y, numeric_features, categorical_features)[0m
+[1;32m     10[0m best_metrics [38;5;241m=[39m joblib[38;5;241m.[39mload(metrics_filename)
+[1;32m     11[0m [38;5;28;01mif[39;00m [38;5;124m"[39m[38;5;124mbest_fold[39m[38;5;124m"[39m [38;5;129;01min[39;00m best_metrics:
+[0;32m---> 12[0m     study_dt [38;5;241m=[39m [43mjoblib[49m[38;5;241;43m.[39;49m[43mload[49m[43m([49m[43mstudy_filename[49m[43m)[49m[[38;5;124m'[39m[38;5;124mstudies[39m[38;5;124m'[39m][best_metrics[[38;5;124m'[39m[38;5;124mbest_fold[39m[38;5;124m'[39m]]
+[1;32m     13[0m [38;5;28;01melse[39;00m:
+[1;32m     14[0m     study_dt [38;5;241m=[39m [38;5;28;01mNone[39;00m
+
+File [0;32m~/Conda/miniconda3/envs/MachineLearning/lib/python3.9/site-packages/joblib/numpy_pickle.py:658[0m, in [0;36mload[0;34m(filename, mmap_mode)[0m
+[1;32m    652[0m             [38;5;28;01mif[39;00m [38;5;28misinstance[39m(fobj, [38;5;28mstr[39m):
+[1;32m    653[0m                 [38;5;66;03m# if the returned file object is a string, this means we[39;00m
+[1;32m    654[0m                 [38;5;66;03m# try to load a pickle file generated with an version of[39;00m
+[1;32m    655[0m                 [38;5;66;03m# Joblib so we load it with joblib compatibility function.[39;00m
+[1;32m    656[0m                 [38;5;28;01mreturn[39;00m load_compatibility(fobj)
+[0;32m--> 658[0m             obj [38;5;241m=[39m [43m_unpickle[49m[43m([49m[43mfobj[49m[43m,[49m[43m [49m[43mfilename[49m[43m,[49m[43m [49m[43mmmap_mode[49m[43m)[49m
+[1;32m    659[0m [38;5;28;01mreturn[39;00m obj
+
+File [0;32m~/Conda/miniconda3/envs/MachineLearning/lib/python3.9/site-packages/joblib/numpy_pickle.py:577[0m, in [0;36m_unpickle[0;34m(fobj, filename, mmap_mode)[0m
+[1;32m    575[0m obj [38;5;241m=[39m [38;5;28;01mNone[39;00m
+[1;32m    576[0m [38;5;28;01mtry[39;00m:
+[0;32m--> 577[0m     obj [38;5;241m=[39m [43munpickler[49m[38;5;241;43m.[39;49m[43mload[49m[43m([49m[43m)[49m
+[1;32m    578[0m     [38;5;28;01mif[39;00m unpickler[38;5;241m.[39mcompat_mode:
+[1;32m    579[0m         warnings[38;5;241m.[39mwarn([38;5;124m"[39m[38;5;124mThe file [39m[38;5;124m'[39m[38;5;132;01m%s[39;00m[38;5;124m'[39m[38;5;124m has been generated with a [39m[38;5;124m"[39m
+[1;32m    580[0m                       [38;5;124m"[39m[38;5;124mjoblib version less than 0.10. [39m[38;5;124m"[39m
+[1;32m    581[0m                       [38;5;124m"[39m[38;5;124mPlease regenerate this pickle file.[39m[38;5;124m"[39m
+[1;32m    582[0m                       [38;5;241m%[39m filename,
+[1;32m    583[0m                       [38;5;167;01mDeprecationWarning[39;00m, stacklevel[38;5;241m=[39m[38;5;241m3[39m)
+
+File [0;32m~/Conda/miniconda3/envs/MachineLearning/lib/python3.9/pickle.py:1212[0m, in [0;36m_Unpickler.load[0;34m(self)[0m
+[1;32m   1210[0m             [38;5;28;01mraise[39;00m [38;5;167;01mEOFError[39;00m
+[1;32m   1211[0m         [38;5;28;01massert[39;00m [38;5;28misinstance[39m(key, bytes_types)
+[0;32m-> 1212[0m         [43mdispatch[49m[43m[[49m[43mkey[49m[43m[[49m[38;5;241;43m0[39;49m[43m][49m[43m][49m[43m([49m[38;5;28;43mself[39;49m[43m)[49m
+[1;32m   1213[0m [38;5;28;01mexcept[39;00m _Stop [38;5;28;01mas[39;00m stopinst:
+[1;32m   1214[0m     [38;5;28;01mreturn[39;00m stopinst[38;5;241m.[39mvalue
+
+File [0;32m~/Conda/miniconda3/envs/MachineLearning/lib/python3.9/pickle.py:1589[0m, in [0;36m_Unpickler.load_reduce[0;34m(self)[0m
+[1;32m   1587[0m args [38;5;241m=[39m stack[38;5;241m.[39mpop()
+[1;32m   1588[0m func [38;5;241m=[39m stack[[38;5;241m-[39m[38;5;241m1[39m]
+[0;32m-> 1589[0m stack[[38;5;241m-[39m[38;5;241m1[39m] [38;5;241m=[39m [43mfunc[49m[43m([49m[38;5;241;43m*[39;49m[43margs[49m[43m)[49m
+
+File [0;32m~/Conda/miniconda3/envs/MachineLearning/lib/python3.9/site-packages/numpy/random/_pickle.py:34[0m, in [0;36m__bit_generator_ctor[0;34m(bit_generator_name)[0m
+[1;32m     32[0m     bit_generator [38;5;241m=[39m BitGenerators[bit_generator_name]
+[1;32m     33[0m [38;5;28;01melse[39;00m:
+[0;32m---> 34[0m     [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m([38;5;28mstr[39m(bit_generator_name) [38;5;241m+[39m [38;5;124m'[39m[38;5;124m is not a known [39m[38;5;124m'[39m
+[1;32m     35[0m                                                [38;5;124m'[39m[38;5;124mBitGenerator module.[39m[38;5;124m'[39m)
+[1;32m     37[0m [38;5;28;01mreturn[39;00m bit_generator()
+
+[0;31mValueError[0m: <class 'numpy.random._mt19937.MT19937'> is not a known BitGenerator module.
+
