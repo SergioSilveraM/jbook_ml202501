@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Clasificador Híbrido para la Predicción del Nivel de Inglés en Saber Pro: Un Enfoque Basado en Ensamble &#8212; Machine Learning</title>
+    <title>Introducción &#8212; Machine Learning</title>
   
   
   
@@ -179,7 +179,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1 current active">
                 <a class="reference internal" href="#">
-                    Clasificador Híbrido para la Predicción del Nivel de Inglés en Saber Pro: Un Enfoque Basado en Ensamble
+                    Introducción
                 </a>
             </li>
         </ul>
@@ -189,6 +189,14 @@
 <li class="toctree-l1"><a class="reference internal" href="random_forest.html"><em><strong>Random Forest</strong></em></a></li>
 <li class="toctree-l1"><a class="reference internal" href="RL.html"><em><strong>Regresión Logística</strong></em></a></li>
 <li class="toctree-l1"><a class="reference internal" href="MultinomialNB.html"><em><strong>Naive Bayes</strong></em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="knn.html"><em><strong>KNN</strong></em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="svc_lsvc.html"><em><strong>SVC</strong></em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="mlp.html"><em><strong>MLP</strong></em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="rnn.html"><em><strong>RNN</strong></em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="lstm.html"><em><strong>LSTM</strong></em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="cnn.html"><em><strong>CNN</strong></em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="reporte_metricas.html"><em><strong>Custom Class Metrics</strong></em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="particion.html"><em><strong>Importante: Partición</strong></em></a></li>
 </ul>
 
     </div>
@@ -342,7 +350,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Clasificador Híbrido para la Predicción del Nivel de Inglés en Saber Pro: Un Enfoque Basado en Ensamble</h1>
+    <h1>Introducción</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -352,6 +360,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clasificador-hibrido-para-la-prediccion-del-nivel-de-ingles-en-saber-pro-un-enfoque-basado-en-ensamble"><strong>Clasificador Híbrido para la Predicción del Nivel de Inglés en Saber Pro: Un Enfoque Basado en Ensamble</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integrantes"><strong>Integrantes</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tabla-de-contenido"><strong>Tabla de Contenido</strong></a></li>
 </ul>
@@ -365,8 +374,10 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="clasificador-hibrido-para-la-prediccion-del-nivel-de-ingles-en-saber-pro-un-enfoque-basado-en-ensamble">
-<h1><strong>Clasificador Híbrido para la Predicción del Nivel de Inglés en Saber Pro: Un Enfoque Basado en Ensamble</strong><a class="headerlink" href="#clasificador-hibrido-para-la-prediccion-del-nivel-de-ingles-en-saber-pro-un-enfoque-basado-en-ensamble" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="introduccion">
+<h1><strong>Introducción</strong><a class="headerlink" href="#introduccion" title="Link to this heading">#</a></h1>
+<section id="clasificador-hibrido-para-la-prediccion-del-nivel-de-ingles-en-saber-pro-un-enfoque-basado-en-ensamble">
+<h2><strong>Clasificador Híbrido para la Predicción del Nivel de Inglés en Saber Pro: Un Enfoque Basado en Ensamble</strong><a class="headerlink" href="#clasificador-hibrido-para-la-prediccion-del-nivel-de-ingles-en-saber-pro-un-enfoque-basado-en-ensamble" title="Link to this heading">#</a></h2>
 <p>La evaluación del nivel de inglés en estudiantes universitarios colombianos, mediante las Pruebas Saber Pro, constituye una herramienta clave para diagnosticar competencias comunicativas en un contexto globalizado. Estas pruebas estandarizadas no solo permiten medir el dominio del idioma, sino que también ofrecen insumos valiosos para analizar el impacto de variables socioeconómicas, académicas y demográficas en el desempeño estudiantil.</p>
 <p>En este estudio, se propone un modelo de aprendizaje automático (ML) orientado a la predicción del nivel de inglés alcanzado en la prueba <strong>Saber Pro</strong>, a partir de datos históricos recolectados entre <span class="math notranslate nohighlight">\(2018\)</span> y <span class="math notranslate nohighlight">\(2022\)</span>. El enfoque se basa en un esquema de ensamble tipo <strong>stacking</strong>, combinando la capacidad de generalización de <strong>XGBoost</strong> y <strong>Multi-Layer Perceptron (MLP)</strong> como clasificadores base, con la robustez de un <strong>Random Forest</strong> como metamodelo final.</p>
 <p>El desarrollo del trabajo se estructura en las siguientes etapas:</p>
@@ -377,6 +388,7 @@ Entrenamiento y Comparación de Modelos Base: Se evalúan clasificadores individ
 <li><p><strong>Benchmarking Final:</strong> Se comparan los resultados del modelo híbrido con enfoques base, evidenciando mejoras sustanciales en la predicción del nivel de inglés.
 El objetivo del informe es construir un modelo robusto y explicativo que permita anticipar el desempeño en inglés con alto grado de <strong>precisión</strong>, brindando apoyo a procesos de análisis educativo y toma de decisiones pedagógicas.</p></li>
 </ul>
+</section>
 <section id="integrantes">
 <h2><strong>Integrantes</strong><a class="headerlink" href="#integrantes" title="Link to this heading">#</a></h2>
 <ul class="simple">
@@ -394,6 +406,14 @@ El objetivo del informe es construir un modelo robusto y explicativo que permita
 <li class="toctree-l1"><a class="reference internal" href="random_forest.html"><em><strong>Random Forest</strong></em></a></li>
 <li class="toctree-l1"><a class="reference internal" href="RL.html"><em><strong>Regresión Logística</strong></em></a></li>
 <li class="toctree-l1"><a class="reference internal" href="MultinomialNB.html"><em><strong>Naive Bayes</strong></em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="knn.html"><em><strong>KNN</strong></em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="svc_lsvc.html"><em><strong>SVC</strong></em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="mlp.html"><em><strong>MLP</strong></em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="rnn.html"><em><strong>RNN</strong></em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="lstm.html"><em><strong>LSTM</strong></em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="cnn.html"><em><strong>CNN</strong></em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="reporte_metricas.html"><em><strong>Custom Class Metrics</strong></em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="particion.html"><em><strong>Importante: Partición</strong></em></a></li>
 </ul>
 </div>
 </section>
@@ -454,6 +474,7 @@ El objetivo del informe es construir un modelo robusto y explicativo que permita
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clasificador-hibrido-para-la-prediccion-del-nivel-de-ingles-en-saber-pro-un-enfoque-basado-en-ensamble"><strong>Clasificador Híbrido para la Predicción del Nivel de Inglés en Saber Pro: Un Enfoque Basado en Ensamble</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integrantes"><strong>Integrantes</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tabla-de-contenido"><strong>Tabla de Contenido</strong></a></li>
 </ul>

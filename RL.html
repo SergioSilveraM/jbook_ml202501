@@ -176,7 +176,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Clasificador Híbrido para la Predicción del Nivel de Inglés en Saber Pro: Un Enfoque Basado en Ensamble
+                    Introducción
                 </a>
             </li>
         </ul>
@@ -186,6 +186,14 @@
 <li class="toctree-l1"><a class="reference internal" href="random_forest.html"><em><strong>Random Forest</strong></em></a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#"><em><strong>Regresión Logística</strong></em></a></li>
 <li class="toctree-l1"><a class="reference internal" href="MultinomialNB.html"><em><strong>Naive Bayes</strong></em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="knn.html"><em><strong>KNN</strong></em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="svc_lsvc.html"><em><strong>SVC</strong></em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="mlp.html"><em><strong>MLP</strong></em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="rnn.html"><em><strong>RNN</strong></em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="lstm.html"><em><strong>LSTM</strong></em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="cnn.html"><em><strong>CNN</strong></em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="reporte_metricas.html"><em><strong>Custom Class Metrics</strong></em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="particion.html"><em><strong>Importante: Partición</strong></em></a></li>
 </ul>
 
     </div>
@@ -38423,7 +38431,7 @@ weighted avg       0.45      0.46      0.42     66445
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>✅ Report for model &#39;RL&#39; saved:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Report for model &#39;RL&#39; saved:
    → CSV: ../Metrics/Metrics_RL.csv
    → JSON: ../Metrics/Metrics_RL.json
 </pre></div>
@@ -38437,8 +38445,8 @@ weighted avg       0.45      0.46      0.42     66445
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>✅ Loaded 12 report(s):
-   → Models: [&#39;LSTM&#39;, &#39;NB_Partial&#39;, &#39;CNN&#39;, &#39;RF&#39;, &#39;RNN&#39;, &#39;Mult_NB&#39;, &#39;CART_SMOTE&#39;, &#39;Bern_NB&#39;, &#39;CART_ADASYN&#39;, &#39;MLP&#39;, &#39;RL&#39;, &#39;CART&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loaded 13 report(s):
+   → Models: [&#39;SVC_RFF&#39;, &#39;NB_Partial&#39;, &#39;SVC_lin&#39;, &#39;RF&#39;, &#39;SVC_SGD&#39;, &#39;KNN_OPT&#39;, &#39;Mult_NB&#39;, &#39;KNN&#39;, &#39;CART_SMOTE&#39;, &#39;Bern_NB&#39;, &#39;CART_ADASYN&#39;, &#39;RL&#39;, &#39;CART&#39;]
    → Types : [&#39;train&#39;, &#39;val&#39;, &#39;test&#39;]
 </pre></div>
 </div>
@@ -38479,7 +38487,7 @@ weighted avg       0.45      0.46      0.42     66445
   </thead>
   <tbody>
     <tr>
-      <th>240</th>
+      <th>264</th>
       <td>RL</td>
       <td>train</td>
       <td>0</td>
@@ -38488,7 +38496,7 @@ weighted avg       0.45      0.46      0.42     66445
       <td>0.083</td>
     </tr>
     <tr>
-      <th>241</th>
+      <th>265</th>
       <td>RL</td>
       <td>train</td>
       <td>1</td>
@@ -38497,7 +38505,7 @@ weighted avg       0.45      0.46      0.42     66445
       <td>0.304</td>
     </tr>
     <tr>
-      <th>242</th>
+      <th>266</th>
       <td>RL</td>
       <td>train</td>
       <td>2</td>
@@ -38506,7 +38514,7 @@ weighted avg       0.45      0.46      0.42     66445
       <td>0.573</td>
     </tr>
     <tr>
-      <th>243</th>
+      <th>267</th>
       <td>RL</td>
       <td>train</td>
       <td>3</td>
@@ -38515,7 +38523,7 @@ weighted avg       0.45      0.46      0.42     66445
       <td>0.385</td>
     </tr>
     <tr>
-      <th>244</th>
+      <th>268</th>
       <td>RL</td>
       <td>train</td>
       <td>4</td>
@@ -38524,7 +38532,7 @@ weighted avg       0.45      0.46      0.42     66445
       <td>0.48</td>
     </tr>
     <tr>
-      <th>245</th>
+      <th>269</th>
       <td>RL</td>
       <td>train</td>
       <td>macro avg</td>
@@ -38533,7 +38541,7 @@ weighted avg       0.45      0.46      0.42     66445
       <td>0.365</td>
     </tr>
     <tr>
-      <th>246</th>
+      <th>270</th>
       <td>RL</td>
       <td>train</td>
       <td>weighted avg</td>
@@ -38580,7 +38588,7 @@ weighted avg       0.45      0.46      0.42     66445
   </thead>
   <tbody>
     <tr>
-      <th>248</th>
+      <th>272</th>
       <td>RL</td>
       <td>val</td>
       <td>0</td>
@@ -38589,7 +38597,7 @@ weighted avg       0.45      0.46      0.42     66445
       <td>0.082</td>
     </tr>
     <tr>
-      <th>249</th>
+      <th>273</th>
       <td>RL</td>
       <td>val</td>
       <td>1</td>
@@ -38598,7 +38606,7 @@ weighted avg       0.45      0.46      0.42     66445
       <td>0.304</td>
     </tr>
     <tr>
-      <th>250</th>
+      <th>274</th>
       <td>RL</td>
       <td>val</td>
       <td>2</td>
@@ -38607,7 +38615,7 @@ weighted avg       0.45      0.46      0.42     66445
       <td>0.574</td>
     </tr>
     <tr>
-      <th>251</th>
+      <th>275</th>
       <td>RL</td>
       <td>val</td>
       <td>3</td>
@@ -38616,7 +38624,7 @@ weighted avg       0.45      0.46      0.42     66445
       <td>0.381</td>
     </tr>
     <tr>
-      <th>252</th>
+      <th>276</th>
       <td>RL</td>
       <td>val</td>
       <td>4</td>
@@ -38625,7 +38633,7 @@ weighted avg       0.45      0.46      0.42     66445
       <td>0.469</td>
     </tr>
     <tr>
-      <th>253</th>
+      <th>277</th>
       <td>RL</td>
       <td>val</td>
       <td>macro avg</td>
@@ -38634,7 +38642,7 @@ weighted avg       0.45      0.46      0.42     66445
       <td>0.362</td>
     </tr>
     <tr>
-      <th>254</th>
+      <th>278</th>
       <td>RL</td>
       <td>val</td>
       <td>weighted avg</td>
@@ -38681,7 +38689,7 @@ weighted avg       0.45      0.46      0.42     66445
   </thead>
   <tbody>
     <tr>
-      <th>256</th>
+      <th>280</th>
       <td>RL</td>
       <td>test</td>
       <td>0</td>
@@ -38690,7 +38698,7 @@ weighted avg       0.45      0.46      0.42     66445
       <td>0.09</td>
     </tr>
     <tr>
-      <th>257</th>
+      <th>281</th>
       <td>RL</td>
       <td>test</td>
       <td>1</td>
@@ -38699,7 +38707,7 @@ weighted avg       0.45      0.46      0.42     66445
       <td>0.306</td>
     </tr>
     <tr>
-      <th>258</th>
+      <th>282</th>
       <td>RL</td>
       <td>test</td>
       <td>2</td>
@@ -38708,7 +38716,7 @@ weighted avg       0.45      0.46      0.42     66445
       <td>0.572</td>
     </tr>
     <tr>
-      <th>259</th>
+      <th>283</th>
       <td>RL</td>
       <td>test</td>
       <td>3</td>
@@ -38717,7 +38725,7 @@ weighted avg       0.45      0.46      0.42     66445
       <td>0.379</td>
     </tr>
     <tr>
-      <th>260</th>
+      <th>284</th>
       <td>RL</td>
       <td>test</td>
       <td>4</td>
@@ -38726,7 +38734,7 @@ weighted avg       0.45      0.46      0.42     66445
       <td>0.477</td>
     </tr>
     <tr>
-      <th>261</th>
+      <th>285</th>
       <td>RL</td>
       <td>test</td>
       <td>macro avg</td>
@@ -38735,7 +38743,7 @@ weighted avg       0.45      0.46      0.42     66445
       <td>0.365</td>
     </tr>
     <tr>
-      <th>262</th>
+      <th>286</th>
       <td>RL</td>
       <td>test</td>
       <td>weighted avg</td>
@@ -38781,7 +38789,7 @@ weighted avg       0.45      0.46      0.42     66445
   </thead>
   <tbody>
     <tr>
-      <th>247</th>
+      <th>271</th>
       <td>RL</td>
       <td>train</td>
       <td>0.457</td>
@@ -38789,7 +38797,7 @@ weighted avg       0.45      0.46      0.42     66445
       <td>0.723</td>
     </tr>
     <tr>
-      <th>255</th>
+      <th>279</th>
       <td>RL</td>
       <td>val</td>
       <td>0.456</td>
@@ -38797,7 +38805,7 @@ weighted avg       0.45      0.46      0.42     66445
       <td>0.722</td>
     </tr>
     <tr>
-      <th>263</th>
+      <th>287</th>
       <td>RL</td>
       <td>test</td>
       <td>0.456</td>
@@ -38842,7 +38850,7 @@ weighted avg       0.45      0.46      0.42     66445
   </thead>
   <tbody>
     <tr>
-      <th>255</th>
+      <th>279</th>
       <td>RL</td>
       <td>val</td>
       <td>0.456</td>

@@ -1,0 +1,573 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Custom Class Metrics &#8212; Machine Learning</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'reporte_metricas';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Importante: Partición" href="particion.html" />
+    <link rel="prev" title="CNN" href="cnn.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Machine Learning - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Machine Learning - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Introducción
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="EDA.html"><em><strong>Análisis Exploratorio de Datos</strong></em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="cart.html"><em><strong>Cart</strong></em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="random_forest.html"><em><strong>Random Forest</strong></em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="RL.html"><em><strong>Regresión Logística</strong></em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="MultinomialNB.html"><em><strong>Naive Bayes</strong></em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="knn.html"><em><strong>KNN</strong></em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="svc_lsvc.html"><em><strong>SVC</strong></em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="mlp.html"><em><strong>MLP</strong></em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="rnn.html"><em><strong>RNN</strong></em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="lstm.html"><em><strong>LSTM</strong></em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="cnn.html"><em><strong>CNN</strong></em></a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#"><em><strong>Custom Class Metrics</strong></em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="particion.html"><em><strong>Importante: Partición</strong></em></a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/reporte_metricas.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Custom Class Metrics</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="custom-class-metrics">
+<h1><em><strong>Custom Class Metrics</strong></em><a class="headerlink" href="#custom-class-metrics" title="Link to this heading">#</a></h1>
+<p>En este notebook se encuentra la clase personalizada empleada para el cálculo, guardado y carga de las métricas para cada uno de los modelos empleados en este proyecto.</p>
+<div class="highlight-import notranslate"><div class="highlight"><pre><span></span>import os
+from sklearn.metrics import classification_report
+
+class ReporteMetricas:
+    def __init__(self, output_dir: str = &quot;../Metrics&quot;):
+        self.output_dir = output_dir
+        os.makedirs(self.output_dir, exist_ok=True)
+        pd.options.display.float_format = &#39;{:.3f}&#39;.format
+
+    def save(self, metrics: dict, model_name: str):
+        rows = []
+        metric_cols = [&quot;precision&quot;, &quot;recall&quot;, &quot;f1-score&quot;, &quot;support&quot;]
+
+        for tipo in [&quot;train&quot;, &quot;val&quot;, &quot;test&quot;]:
+            if tipo == &quot;train&quot; and &quot;accuracy_train&quot; in metrics:
+                y_true = metrics.get(&quot;y_train_true&quot;, metrics[&quot;y_train_fold&quot;])
+                y_pred = metrics.get(&quot;y_train_pred&quot;)
+                acc = metrics[&quot;accuracy_train&quot;]
+                log = metrics[&quot;log_loss_train&quot;]
+                auc = metrics[&quot;auc_train&quot;]
+            elif tipo == &quot;val&quot; and &quot;accuracy_val&quot; in metrics:
+                y_true = metrics.get(&quot;y_val_true&quot;, metrics.get(&quot;y_train_fold&quot;))
+                y_pred = metrics.get(&quot;y_val_pred&quot;)
+                acc = metrics[&quot;accuracy_val&quot;]
+                log = metrics[&quot;log_loss_val&quot;]
+                auc = metrics[&quot;auc_val&quot;]
+            elif tipo == &quot;test&quot; and &quot;accuracy_test&quot; in metrics:
+                y_true = metrics.get(&quot;y_test_fold&quot;)
+                y_pred = metrics.get(&quot;y_test_pred&quot;)
+                acc = metrics[&quot;accuracy_test&quot;]
+                log = metrics[&quot;log_loss_test&quot;]
+                auc = metrics[&quot;auc_test&quot;]
+            else:
+                continue
+
+            if y_true is None or y_pred is None:
+                continue
+
+            report_dict = classification_report(y_true, y_pred, output_dict=True)
+            report_dict.pop(&quot;accuracy&quot;, None)
+
+            df = pd.DataFrame(report_dict).T.reset_index()
+            df.rename(columns={&quot;index&quot;: &quot;Class&quot;}, inplace=True)
+            df[&quot;Model&quot;] = model_name
+            df[&quot;Type&quot;] = tipo
+            df[&quot;accuracy&quot;] = &quot;-&quot;
+            df[&quot;log_loss&quot;] = &quot;-&quot;
+            df[&quot;auc&quot;] = &quot;-&quot;
+
+            df = df[[&quot;Model&quot;, &quot;Type&quot;, &quot;Class&quot;] + metric_cols + [&quot;accuracy&quot;, &quot;log_loss&quot;, &quot;auc&quot;]]
+
+            for col in metric_cols:
+                df[col] = pd.to_numeric(df[col], errors=&#39;coerce&#39;).round(3)
+            df[metric_cols] = df[metric_cols].fillna(0)
+
+            global_row = pd.DataFrame([{
+                &quot;Model&quot;: model_name,
+                &quot;Type&quot;: tipo,
+                &quot;Class&quot;: &quot;global&quot;,
+                &quot;precision&quot;: &quot;-&quot;,
+                &quot;recall&quot;: &quot;-&quot;,
+                &quot;f1-score&quot;: &quot;-&quot;,
+                &quot;support&quot;: &quot;-&quot;,
+                &quot;accuracy&quot;: round(acc, 3),
+                &quot;log_loss&quot;: round(log, 3),
+                &quot;auc&quot;: round(auc, 3)
+            }])
+
+            df = pd.concat([df, global_row], ignore_index=True)
+            rows.append(df)
+
+        if not rows:
+            print(f&quot;No metrics saved for {model_name}. Check the dict keys.&quot;)
+            return
+
+        df_final = pd.concat(rows, ignore_index=True)
+
+        # Save CSV
+        csv_path = os.path.join(self.output_dir, f&quot;Metrics_{model_name}.csv&quot;)
+        df_final.to_csv(csv_path, index=False)
+
+        # Save JSON
+        json_path = os.path.join(self.output_dir, f&quot;Metrics_{model_name}.json&quot;)
+        df_final.to_json(json_path, orient=&quot;records&quot;, indent=4)
+
+        print(f&quot;\nReport for model &#39;{model_name}&#39; saved:&quot;)
+        print(f&quot;   → CSV: {csv_path}&quot;)
+        print(f&quot;   → JSON: {json_path}&quot;)
+
+    def load(self):
+        files = [f for f in os.listdir(self.output_dir) if f.endswith(&quot;.csv&quot;) and f.startswith(&quot;Metrics_&quot;)]
+        if not files:
+            print(&quot;No metric reports found.&quot;)
+            return None
+
+        all_reports = pd.concat([pd.read_csv(os.path.join(self.output_dir, f)) for f in files], ignore_index=True)
+        print(f&quot;\nLoaded {len(files)} report(s):&quot;)
+        print(f&quot;   → Models: {all_reports[&#39;Model&#39;].unique().tolist()}&quot;)
+        print(f&quot;   → Types : {all_reports[&#39;Type&#39;].unique().tolist()}&quot;)
+        return all_reports
+</pre></div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="cnn.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><em><strong>CNN</strong></em></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="particion.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><em><strong>Importante: Partición</strong></em></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Sergio Silvera - Alvaro Romano - Miguel Cabrera
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
